@@ -1,0 +1,6 @@
+--reporter dot
+--ui bdd
+--growl
+--check-leaks
+--colors
+--require test/common

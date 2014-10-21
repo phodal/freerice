@@ -1,0 +1,39 @@
+{
+  "name": "freerice",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gmszone/freerice.git"
+  },
+  "dependencies": {
+    "underscore": "1.6.0",
+    "restify": "2.8.3",
+    "sqlite3": "3.0.2",
+    "db-migrate": "0.7.1"
+  },
+  "author": [
+    {
+      "name": "Fengda HUANG",
+      "url": "https://www.phodal.com/"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "pre-commit": "0.0.9",
+    "chai": "~1.9.1",
+    "mocha": "~1.21.4",
+    "sinon": "~1.7.3",
+    "bl": "~0.9.0",
+    "jslint": "0.6.4"
+  },
+  "pre-commit": [
+    "initdb",
+    "test",
+    "jslint"
+  ],
+  "scripts": {
+    "initdb": "./node_modules/.bin/db-migrate up",
+    "test": "./node_modules/.bin/mocha --reporter spec 2>&1",
+    "jslint": "jslint --edition=latest 'server/*.js' 'web/js/*.js'"
+  }
+}
