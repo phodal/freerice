@@ -65,7 +65,7 @@ DB.prototype.createAccount = function (account, callback) {
         if(_.isEmpty(rows)){
             rows = {
                 "status": "success"
-            }
+            };
         }
         callback(rows);
     });
