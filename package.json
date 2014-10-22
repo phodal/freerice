@@ -24,16 +24,20 @@
     "mocha": "~1.21.4",
     "sinon": "~1.7.3",
     "bl": "~0.9.0",
-    "jslint": "0.6.4"
+    "jslint": "0.6.4",
+    "istanbul": "0.3.2",
+    "codeclimate-test-reporter": "0.0.4"
   },
   "pre-commit": [
     "initdb",
     "test",
-    "jslint"
+    "jslint",
+    "sendCoverage"
   ],
   "scripts": {
     "initdb": "./node_modules/.bin/db-migrate up",
-    "test": "./node_modules/.bin/mocha --reporter spec 2>&1",
-    "jslint": "jslint --edition=latest 'server/*.js' 'web/js/*.js'"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "jslint": "jslint --edition=latest 'server/*.js' 'web/js/*.js'",
+    "sendCoverage": "CODECLIMATE_REPO_TOKEN=a3daf8f91c16279d4e52896acab124d2646424592fbc342e2e8da832b66e68f8 codeclimate < coverage/lcov.info"
   }
 }
