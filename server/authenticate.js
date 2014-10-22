@@ -30,7 +30,7 @@ Authenticate.prototype.create = function (req, res, next) {
         return next(new restify.InvalidArgumentError('Name must be supplied'));
     }
     db.createAccount(req.params, function (result) {
-        if (req.params.password === _.first(result).password) {
+        if (result.status === "success") {
             res.send({status: "success"});
             next();
         } else {

@@ -109,4 +109,11 @@ describe('Create User Test', function() {
             }
         });
     });
+    it('should return Name must be supplied when without name', function(done) {
+        client.post('/account/create', { password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
+            if(err.message === "Name must be supplied"){
+                done();
+            }
+        });
+    });
 });
