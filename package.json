@@ -31,8 +31,7 @@
   "pre-commit": [
     "initdb",
     "test",
-    "jslint",
-    "sendCoverage"
+    "jslint"
   ],
   "scripts": {
     "initdb": "./node_modules/.bin/db-migrate up",
