@@ -1,4 +1,6 @@
 [![Build Status](https://api.travis-ci.org/gmszone/freerice.png)](https://travis-ci.org/gmszone/freerice)
+[![Code Climate](https://codeclimate.com/github/gmszone/freerice/badges/gpa.svg)](https://codeclimate.com/github/gmszone/freerice)
+[![Test Coverage](https://codeclimate.com/github/gmszone/freerice/badges/coverage.svg)](https://codeclimate.com/github/gmszone/freerice)
 
 ##Quick Start
 
