@@ -1,4 +1,6 @@
 var sqlite3         = require('sqlite3').verbose();
+var _               = require('underscore');
+var db_helper       = require('db_helper');
 
 function DB() {
     'use strict';
@@ -47,6 +49,17 @@ DB.prototype.findAllRice = function (callback) {
     'use strict';
     var db = new sqlite3.Database("dev.db");
     db.all("SELECT * FROM rice", function (err, rows) {
+        DB.prototype.errorHandler(err);
+        db.close();
+        callback(rows);
+    });
+};
+
+DB.prototype.createAccount = function (account, callback) {
+    'use strict';
+    console.log(account);
+    var db = new sqlite3.Database("dev.db");
+    db.all("insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");", function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
         callback(rows);

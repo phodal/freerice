@@ -93,3 +93,20 @@ describe('User Login Test', function() {
     });
 
 });
+
+
+describe('Create User Test', function() {
+    it('should return create success', function(done) {
+        client.post('/account/create', { name: 'user', password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
+            if (err) {
+                throw new Error(err);
+            }
+            else {
+                if (data.status != "success") {
+                    throw new Error('login failed');
+                }
+                done();
+            }
+        });
+    });
+});

@@ -11,8 +11,14 @@ define([
         initialize: function(){
             console.log('login');
         },
+        events: {
+            "click #createAccont": "create_account"
+        },
+        create_account: function(event){
+            event.preventDefault();
+            console.log("create_account");
+        },
         render: function(){
-            console.log('login');
             this.$el.html(Mustache.to_html(createAccountTemplate, {data:"data"}));
         }
     });

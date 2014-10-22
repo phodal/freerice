@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'mustache',
-    'text!/templates/homepage_detail.html'
-],function($, _, Mustache, homepageTemplate){
+    'text!/templates/homepage_detail.html',
+    'js/UserSession'
+],function($, _, Mustache, homepageTemplate, UserSession){
     'use strict';
     var ItemsModel = Backbone.Model.extend({});
     var Items = Backbone.Collection.extend({

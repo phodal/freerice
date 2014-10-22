@@ -8,11 +8,8 @@ define([
     'use strict';
     function User( router ){
         this.router = router;
-        this.token = localStorage.getItem("authenticationToken");
-        this.details = {};
         this.loggedIn = this.hasToken();
         this.email = localStorage.getPropertyFromItem("visitorDetails", "email") || localStorage.getItem("user-email");
-        this.visitorId = localStorage.getItem("visitor-id");
     }
     User.prototype.hasToken = function(){
         return (localStorage.getItem("authenticationToken")) ?  true : false;

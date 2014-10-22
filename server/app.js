@@ -21,6 +21,7 @@ server.get('/all/rice', get_response.findAllRice);
 server.get('/account/id/:id', get_response.getById);
 server.get('/account/name/:name', get_response.getByName);
 server.post('/login/user', auth.login);
+server.post('/account/create', auth.create);
 
 server.get('/', restify.serveStatic({
     directory: 'web',

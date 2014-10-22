@@ -12,9 +12,7 @@ define([
         el: $("#content"),
 
         initialize: function(){
-            if(user.loggedIn){
 
-            }
         },
         events: {
             "click #login": "login"

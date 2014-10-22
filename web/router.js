@@ -39,15 +39,15 @@ define([
 
 
         router.on('route:admin', function(action) {
-            var nologin;
-            if(nologin == undefined || nologin == true){
+            console.log(UserSession.authenticated());
+            if(UserSession.authenticated() !=true ){
                 router.navigate('account/login', true)
             }
         });
 
         router.on('route:userProfile', function(action) {
-            var nologin;
-            if(nologin == undefined || nologin == true){
+            console.log(UserSession.authenticated());
+            if(UserSession.authenticated() !=true ){
                 router.navigate('account/login', true)
             }
         });
