@@ -110,11 +110,7 @@ var client2 = restify.createJsonClient({
 
 describe('Create User Test', function() {
     it('should return create success', function (done) {
-        client2.post('/account/create', {
-            name: 'user',
-            password: "user",
-            email: "user@phodal.com"
-        }, function (err, req, res, data) {
+        client2.post('/account/create', { name: 'user', password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
             if (err) {
                 throw new Error(err);
             }
@@ -138,7 +134,7 @@ describe('Create User Test', function() {
 
 describe('Create User Test 2', function() {
     it('should return Name must be supplied when name repeat', function(done) {
-        client2.post('/account/create', { name: "user", password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
+        client.post('/account/create', { name: "user", password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
             if(data.error === "user exist"){
                 done();
             }

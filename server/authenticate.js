@@ -5,12 +5,13 @@ var restify = require("restify");
 var bcrypt  = require('bcrypt');
 
 function encryptPassword(password, cb) {
+    'use strict';
     bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
             cb(null, hash);
         });
     });
-};
+}
 
 function Authenticate() {
     'use strict';
@@ -50,21 +51,21 @@ Authenticate.prototype.create = function (req, res, next) {
         if (err) {
             throw new Error(err);
         }
-    });
-
-    db.createAccount(req.params, function (result) {
-        if (result.status === "success") {
-            res.send({status: "success"});
-            next();
-        } else {
-            result = _.extend(result, {status: "fail"});
-            res.send(result);
-            next();
-        }
 
         account.password = password;
-    });
 
+        db.createAccount(account, function (result) {
+            if (result.status === "success") {
+                res.send({status: "success"});
+                next();
+            } else {
+                result = _.extend(result, {status: "fail"});
+                res.send(result);
+                next();
+            }
+
+        });
+    });
 };
 
 
