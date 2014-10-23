@@ -131,14 +131,3 @@ describe('Create User Test', function() {
         });
     });
 });
-
-describe('Create User Test 2', function() {
-    it('should return Name must be supplied when name repeat', function(done) {
-        client.post('/account/create', { name: "user", password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
-            if(data.error === "user exist"){
-                done();
-            }
-        });
-    });
-
-});
