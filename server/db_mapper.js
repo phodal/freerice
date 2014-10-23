@@ -27,9 +27,10 @@ DB.prototype.getById = function (user_id, callback) {
 
 DB.prototype.getByName = function (user_name, callback) {
     'use strict';
-    var db = new sqlite3.Database("dev.db");
+    var sql = "SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1";
 
-    db.all("SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1", function (err, rows) {
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
         callback(rows);
@@ -38,8 +39,10 @@ DB.prototype.getByName = function (user_name, callback) {
 
 DB.prototype.findAllAccount = function (callback) {
     'use strict';
+    var sql = "SELECT * FROM user";
+
     var db = new sqlite3.Database("dev.db");
-    db.all("SELECT * FROM user", function (err, rows) {
+    db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
         callback(rows);
@@ -48,8 +51,10 @@ DB.prototype.findAllAccount = function (callback) {
 
 DB.prototype.findAllRice = function (callback) {
     'use strict';
+    var sql = "SELECT * FROM rice";
+
     var db = new sqlite3.Database("dev.db");
-    db.all("SELECT * FROM rice", function (err, rows) {
+    db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
         callback(rows);
@@ -58,7 +63,7 @@ DB.prototype.findAllRice = function (callback) {
 
 DB.prototype.createAccount = function (account, callback) {
     'use strict';
-    var db = new sqlite3.Database("dev.db");
+
     DB.prototype.getByName(account.name, function(result){
         if(!_.isEmpty(result)){
             callback({
@@ -66,7 +71,10 @@ DB.prototype.createAccount = function (account, callback) {
             });
         }
     });
-    db.all("insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");", function (err, rows) {
+    var sql = "insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");";
+
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
         if(_.isEmpty(rows)){
