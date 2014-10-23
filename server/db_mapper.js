@@ -29,6 +29,7 @@ DB.prototype.getById = function (user_id, callback) {
 DB.prototype.getByName = function (user_name, callback) {
     'use strict';
     var db = new sqlite3.Database("dev.db");
+
     db.all("SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1", function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
@@ -59,6 +60,7 @@ DB.prototype.findAllRice = function (callback) {
 DB.prototype.createAccount = function (account, callback) {
     'use strict';
     var db = new sqlite3.Database("dev.db");
+
     db.all("insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");", function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
