@@ -1,9 +1,9 @@
 var restify         = require('restify');
 var server          = restify.createServer();
-var Response        = require('./get_response');
+var DBService        = require('./db_service');
 var Authenticate    = require('./authenticate');
 var auth            = new Authenticate();
-var get_response    = new Response();
+var get_response    = new DBService();
 
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());

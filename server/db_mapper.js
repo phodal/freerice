@@ -16,6 +16,7 @@ DB.prototype.errorHandler = function (err) {
 };
 
 DB.prototype.basic = function(sql, db_callback){
+    'use strict';
     var db = new sqlite3.Database("dev.db");
     db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
