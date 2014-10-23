@@ -11,7 +11,6 @@ function DB() {
 DB.prototype.errorHandler = function (err) {
     'use strict';
     if (err !== null) {
-        console.log(err);
         throw err;
     }
 };
@@ -60,7 +59,13 @@ DB.prototype.findAllRice = function (callback) {
 DB.prototype.createAccount = function (account, callback) {
     'use strict';
     var db = new sqlite3.Database("dev.db");
-
+    DB.prototype.getByName(account.name, function(result){
+        if(!_.isEmpty(result)){
+            callback({
+                "error": "user exist"
+            });
+        }
+    });
     db.all("insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");", function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();

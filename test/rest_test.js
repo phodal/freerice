@@ -92,12 +92,29 @@ describe('User Login Test', function() {
         });
     });
 
+    it('should return login failed when lost user name', function(done) {
+        client.post('/login/user', { password: "noadmin" }, function(err, req, res, data) {
+            if (err.message = "Name must be supplied") {
+                done();
+            }
+        });
+    });
+
 });
 
 
+var client2 = restify.createJsonClient({
+    url: 'http://127.0.0.1:8080/',
+    version: '*'
+});
+
 describe('Create User Test', function() {
-    it('should return create success', function(done) {
-        client.post('/account/create', { name: 'user', password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
+    it('should return create success', function (done) {
+        client2.post('/account/create', {
+            name: 'user',
+            password: "user",
+            email: "user@phodal.com"
+        }, function (err, req, res, data) {
             if (err) {
                 throw new Error(err);
             }
@@ -109,11 +126,23 @@ describe('Create User Test', function() {
             }
         });
     });
-    it('should return Name must be supplied when without name', function(done) {
-        client.post('/account/create', { password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
-            if(err.message === "Name must be supplied"){
+
+    it('should return Name must be supplied when without name', function (done) {
+        client.post('/account/create', {password: "user", email: "user@phodal.com"}, function (err, req, res, data) {
+            if (err.message === "Name must be supplied") {
                 done();
             }
         });
     });
+});
+
+describe('Create User Test 2', function() {
+    it('should return Name must be supplied when name repeat', function(done) {
+        client2.post('/account/create', { name: "user", password: "user", email: "user@phodal.com" }, function(err, req, res, data) {
+            if(data.error === "user exist"){
+                done();
+            }
+        });
+    });
+
 });

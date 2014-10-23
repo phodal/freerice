@@ -30,13 +30,12 @@
     "codeclimate-test-reporter": "0.0.4"
   },
   "pre-commit": [
-    "initdb",
     "test",
     "jslint"
   ],
   "scripts": {
-    "initdb": "./node_modules/.bin/db-migrate up",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "initdb": "rm dev.db;./node_modules/.bin/db-migrate up",
+    "test": "rm dev.db;./node_modules/.bin/db-migrate up;istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "jslint": "jslint --edition=latest 'server/*.js' 'web/js/*.js'",
     "sendCoverage": "CODECLIMATE_REPO_TOKEN=a3daf8f91c16279d4e52896acab124d2646424592fbc342e2e8da832b66e68f8 codeclimate < coverage/lcov.info"
   }

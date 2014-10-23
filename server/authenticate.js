@@ -50,18 +50,19 @@ Authenticate.prototype.create = function (req, res, next) {
         if (err) {
             throw new Error(err);
         }
+    });
+
+    db.createAccount(req.params, function (result) {
+        if (result.status === "success") {
+            res.send({status: "success"});
+            next();
+        } else {
+            result = _.extend(result, {status: "fail"});
+            res.send(result);
+            next();
+        }
 
         account.password = password;
-
-        db.createAccount(account, function (result) {
-            if (result.status === "success") {
-                res.send({status: "success"});
-                next();
-            } else {
-                res.send({status: "fail"});
-                next();
-            }
-        });
     });
 
 };
