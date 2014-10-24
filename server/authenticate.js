@@ -26,7 +26,7 @@ Authenticate.prototype.login = function (req, res, next) {
         return next(new restify.InvalidArgumentError('Name must be supplied'));
     }
 
-    db.getByName(account.name, function (result) {
+    db.getPasswordByName(account.name, function (result) {
         bcrypt.compare(account.password, _.first(result).password, function(err, success) {
             if (success) {
                 res.send({status: "success"});

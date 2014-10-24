@@ -14,7 +14,7 @@ define([
             this.load();
         },
         authenticated: function(){
-            return Boolean(this.get('accessToken'));
+            return !_.isEmpty($.cookie('accessToken'));
         },
         save: function(authHash){
             $.cookie('name', authHash.name);

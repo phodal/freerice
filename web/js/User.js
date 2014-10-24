@@ -24,7 +24,7 @@ define([
         this.token = "";
     };
 
-    User.prototype.login = function(userObject) {
+    User.prototype.login = function(userObject, callback) {
         var LoginAccount = Backbone.Model.extend({
             defaults: {
                 name: null,
@@ -50,12 +50,14 @@ define([
                         "accessToken": response.accessToken
                     });
                     console.log(UserSession);
+                    callback();
                     that.setToken("success");
                 } else {
                     that.removeToken();
                 }
             },
             error: function(model, response) {
+                callback();
             }
         });
     };

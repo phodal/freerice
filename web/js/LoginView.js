@@ -3,8 +3,9 @@ define([
     'underscore',
     'mustache',
     'text!/templates/login.html',
-    'js/User'
-],function($, _, Mustache, loginTemplate, User){
+    'js/User',
+    'js/UserSession'
+],function($, _, Mustache, loginTemplate, User, UserSession){
     'use strict';
     var user = new User();
 
@@ -23,7 +24,12 @@ define([
                 name: $('#username').val(),
                 password: $('#password').val()
             };
-            user.login(userInfo);
+            user.login(userInfo, function(){
+                UserSession.save({
+                    name: userInfo.name,
+                    accessToken: userInfo.name
+                });
+            });
         },
         render: function(){
             this.$el.html(Mustache.to_html(loginTemplate, {data:"data"}));

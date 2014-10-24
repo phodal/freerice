@@ -6,8 +6,9 @@ define([
     'js/LoginView.js',
     'js/CreateAccountView.js',
     'js/User.js',
+    'js/UserProfileView.js',
     'js/UserSession.js'
-],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserSession){
+],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession){
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -46,8 +47,11 @@ define([
         });
 
         router.on('route:userProfile', function(action) {
-            console.log(UserSession.authenticated());
-            if(UserSession.authenticated() !=true ){
+            console.log(UserSession);
+            if (UserSession.authenticated() == true) {
+                var userProfileView = new UserProfileView();
+                userProfileView.render();
+            } else {
                 router.navigate('account/login', true)
             }
         });
@@ -57,7 +61,6 @@ define([
             console.log('No route:', actions);
         });
 
-        new User();
         Backbone.history.start();
     };
     return {
