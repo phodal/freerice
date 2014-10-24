@@ -60,5 +60,37 @@ define([
         });
     };
 
+    User.prototype.create = function(userObject) {
+        var LoginAccount = Backbone.Model.extend({
+            defaults: {
+                name: null,
+                email: null,
+                password: null
+            },
+            url: function() {
+                return 'http://localhost:8080/account/create';
+            }
+        });
+
+        var that = this;
+        var login = new LoginAccount({
+            name: userObject.name,
+            email: userObject.email,
+            password: userObject.password
+        });
+
+        login.save({}, {
+            success: function(model, response) {
+                if(response.status === "success"){
+                    console.log("success");
+                } else {
+                    that.removeToken();
+                }
+            },
+            error: function(model, response) {
+            }
+        });
+    };
+
     return User;
 });

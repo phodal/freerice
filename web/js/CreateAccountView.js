@@ -2,9 +2,12 @@ define([
     'jquery',
     'underscore',
     'mustache',
-    'text!/templates/create.html'
-],function($, _,  Mustache, createAccountTemplate){
+    'text!/templates/create.html',
+    'js/User'
+],function($, _,  Mustache, createAccountTemplate, User){
     'use strict';
+    var user = new User();
+
     var LoginView = Backbone.View.extend ({
         el: $("#content"),
 
@@ -12,11 +15,16 @@ define([
             console.log('login');
         },
         events: {
-            "click #createAccont": "create_account"
+            "click #createAccount": "create_account"
         },
         create_account: function(event){
             event.preventDefault();
-            console.log("create_account");
+            var userInfo = {
+                name: $('#fld_name').val(),
+                password: $('#fld_password').val(),
+                email: $('#fld_email').val()
+            };
+            user.create(userInfo);
         },
         render: function(){
             this.$el.html(Mustache.to_html(createAccountTemplate, {data:"data"}));
