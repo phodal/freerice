@@ -22,7 +22,7 @@ Authenticate.prototype.login = function (req, res, next) {
     'use strict';
     var account = req.params;
 
-    if (account.name === undefined) {
+    if (account.name === undefined || account.password === undefined) {
         return next(new restify.InvalidArgumentError('Name must be supplied'));
     }
 

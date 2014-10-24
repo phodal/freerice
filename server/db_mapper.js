@@ -15,38 +15,48 @@ DB.prototype.errorHandler = function (err) {
     }
 };
 
-DB.prototype.basic = function(sql, db_callback){
+DB.prototype.getById = function (user_id, callback) {
     'use strict';
+    var sql = "SELECT * FROM user WHERE id = " + user_id;
     var db = new sqlite3.Database("dev.db");
     db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
-        db_callback(rows);
+        callback(rows);
     });
-};
-
-DB.prototype.getById = function (user_id, callback) {
-    'use strict';
-    var sql = "SELECT * FROM user WHERE id = " + user_id;
-    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.getByName = function (user_name, callback) {
     'use strict';
     var sql = "SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1";
-    DB.prototype.basic(sql, callback);
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
+        DB.prototype.errorHandler(err);
+        db.close();
+        callback(rows);
+    });
 };
 
 DB.prototype.findAllAccount = function (callback) {
     'use strict';
     var sql = "SELECT * FROM user";
-    DB.prototype.basic(sql, callback);
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
+        DB.prototype.errorHandler(err);
+        db.close();
+        callback(rows);
+    });
 };
 
 DB.prototype.findAllRice = function (callback) {
     'use strict';
     var sql = "SELECT * FROM rice";
-    DB.prototype.basic(sql, callback);
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
+        DB.prototype.errorHandler(err);
+        db.close();
+        callback(rows);
+    });
 };
 
 DB.prototype.createAccount = function (account, callback) {
