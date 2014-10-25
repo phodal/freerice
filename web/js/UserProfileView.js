@@ -1,10 +1,10 @@
 define([
     'jquery',
+    'backbone',
     'underscore',
     'mustache',
-    'text!/templates/userProfile.html',
-    'js/UserSession'
-],function($, _, Mustache, userProfileTemplate, UserSession){
+    'text!/templates/userProfile.html'
+],function($, Backbone, _, Mustache, userProfileTemplate){
     'use strict';
     var ItemsModel = Backbone.Model.extend({});
     var Items = Backbone.Collection.extend({

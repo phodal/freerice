@@ -1,10 +1,11 @@
 define([
     'jquery',
+    'backbone',
     'underscore',
     'mustache',
     'text!/templates/create.html',
     'js/User'
-],function($, _,  Mustache, createAccountTemplate, User){
+],function($, Backbone, _,  Mustache, createAccountTemplate, User){
     'use strict';
     var user = new User();
 
