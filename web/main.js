@@ -11,8 +11,6 @@ require.config({
         "jquery-cookie": "lib/jquery.cookie"
     },
     shim: {
-        jquerySidr:["jquery"],
-        touchwipe: ["jquery"],
         "jquery-cookie": ["jquery"],
         underscore: {
             exports: '_'
