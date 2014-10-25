@@ -15,59 +15,44 @@ DB.prototype.errorHandler = function (err) {
     }
 };
 
-DB.prototype.getById = function (user_id, callback) {
+DB.prototype.basic = function(sql, db_callback){
     'use strict';
-    var sql = "SELECT id,name,email FROM user WHERE id = " + user_id;
     var db = new sqlite3.Database("dev.db");
     db.all(sql, function (err, rows) {
         DB.prototype.errorHandler(err);
         db.close();
-        callback(rows);
+        db_callback(rows);
     });
+};
+
+DB.prototype.getById = function (user_id, callback) {
+    'use strict';
+    var sql = "SELECT id,name,email FROM user WHERE id = " + user_id;
+    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.getPasswordByName = function (user_name, callback) {
     'use strict';
     var sql = "SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1";
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        DB.prototype.errorHandler(err);
-        db.close();
-        callback(rows);
-    });
+    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.getByName = function (user_name, callback) {
     'use strict';
     var sql = "SELECT id,name,email FROM user WHERE name = '" + user_name + "'LIMIT 1";
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        DB.prototype.errorHandler(err);
-        db.close();
-        callback(rows);
-    });
+    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.findAllAccount = function (callback) {
     'use strict';
     var sql = "SELECT id,name,email FROM user";
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        DB.prototype.errorHandler(err);
-        db.close();
-        callback(rows);
-    });
+    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.findAllRice = function (callback) {
     'use strict';
     var sql = "SELECT * FROM rice";
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        DB.prototype.errorHandler(err);
-        db.close();
-        callback(rows);
-    });
+    DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.createAccount = function (account, callback) {
