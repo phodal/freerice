@@ -1,25 +1,30 @@
 require.config({
-    baseUrl: './',
+    baseUrl: '../',
     paths: {
-        'text': '../lib/text',
-        jquery: '../lib/jquery-2.1.1.min',
-        json: '../lib/require/json',
-        router: '../router',
-        jasmine: './lib/jasmine-2.0.3/jasmine',
-        "jasmine-html": './lib/jasmine-2.0.3/jasmine-html',
-        underscore: '../lib/underscore',
-        mustache: '../lib/mustache',
-        backbone: '../lib/backbone',
-        "jquery-cookie": "../lib/jquery.cookie"
+        'text': './lib/text',
+        jquery: './lib/jquery-2.1.1.min',
+        json: './lib/require/json',
+        router: './router',
+        jasmine: './test/lib/jasmine-2.0.3/jasmine',
+        "jasmine-html": './test/lib/jasmine-2.0.3/jasmine-html',
+        boot: './test/lib/jasmine-2.0.3/boot',
+        underscore: './lib/underscore',
+        mustache: './lib/mustache',
+        backbone: './lib/backbone',
+        "jquery-cookie": "./lib/jquery.cookie"
     },
     shim: {
         "jquery-cookie": ["jquery"],
-        jasmine: {
-            exports: 'jasmine'
+        'jasmine': {
+            exports: 'window.jasmineRequire'
         },
         'jasmine-html': {
             deps: ['jasmine'],
-            exports: 'jasmine'
+            exports: 'window.jasmineRequire'
+        },
+        'boot': {
+            deps: ['jasmine', 'jasmine-html'],
+            exports: 'window.jasmineRequire'
         },
         underscore: {
             exports: '_'
@@ -27,22 +32,12 @@ require.config({
     }
 });
 
-require([
-    'jquery',
-    'jasmine-html',
-    'spec/index'
-], function ($, jasmine, index) {
-    var jasmineEnv = jasmine.getEnv();
-    var htmlReporter = new jasmine.HtmlReporter(jasmineEnv);
+var specs = [
+    './test/spec/UserSessionSpec'
+];
 
-    jasmineEnv.addReporter(htmlReporter);
-    jasmineEnv.specFilter = function (spec) {
-        return htmlReporter.specFilter(spec);
-    };
-
-    $(function() {
-        require(index.specs, function() {
-            jasmineEnv.execute();
-        });
+require(['boot'], function () {
+    require(specs, function () {
+        window.onload();
     });
 });
