@@ -21,6 +21,7 @@ define([
             '*actions': 'defaultAction'
         }
     });
+    window.app = new AppRouter();
     var initialize = function() {
         var router = new AppRouter;
 

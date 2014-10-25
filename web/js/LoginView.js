@@ -29,6 +29,8 @@ define([
                     name: userInfo.name,
                     accessToken: userInfo.name
                 });
+                console.log(window.app);
+                window.app.navigate('route:userProfile', true);
             });
         },
         render: function(){
