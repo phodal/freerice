@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '/',
+    baseUrl: './',
     paths: {
         'text': '../lib/text/text',
         jquery: '../lib/jquery/dist/jquery.min',
@@ -33,7 +33,7 @@ require.config({
 });
 
 var specs = [
-    './test/spec/UserSessionSpec'
+    './spec/UserSessionSpec'
 ];
 
 require(['boot'], function () {

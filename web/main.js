@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '/',
+    baseUrl: '/test',
     paths: {
         'text': 'lib/text/text',
         jquery: 'lib/jquery/dist/jquery.min',
