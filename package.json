@@ -10,7 +10,8 @@
     "restify": "2.8.3",
     "sqlite3": "3.0.2",
     "db-migrate": "0.7.1",
-    "bcrypt": "~0.8.0"
+    "bcrypt": "~0.8.0",
+    "bower": "1.3.12"
   },
   "author": [
     {
@@ -20,22 +21,29 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "pre-commit": "0.0.9",
-    "chai": "~1.9.1",
-    "mocha": "~1.21.4",
-    "sinon": "~1.7.3",
     "bl": "~0.9.0",
-    "jslint": "0.6.4",
+    "chai": "~1.9.1",
+    "codeclimate-test-reporter": "0.0.4",
     "istanbul": "0.3.2",
+    "jslint": "0.6.4",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-requirejs": "^0.2.2",
+    "mocha": "~1.21.4",
+    "pre-commit": "0.0.9",
     "request": "2.45.0",
-    "codeclimate-test-reporter": "0.0.4"
+    "requirejs": "^2.1.15",
+    "sinon": "~1.7.3"
   },
   "pre-commit": [
     "test",
     "jslint"
   ],
   "scripts": {
+    "start": "node server/app.js",
     "initdb": "rm dev.db;./node_modules/.bin/db-migrate up",
+    "install": "bower install",
     "test": "rm dev.db;./node_modules/.bin/db-migrate up;istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "jslint": "jslint --edition=latest 'server/*.js' 'web/js/*.js'",
     "sendCoverage": "CODECLIMATE_REPO_TOKEN=62ad5b3cbab8aee9e9c32763f7097a0eb673cd2705442d4049b5c9464bb09850 codeclimate < coverage/lcov.info"
