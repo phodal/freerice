@@ -1,14 +1,14 @@
 require.config({
     baseUrl: '/',
     paths: {
-        'text': 'lib/text',
-        jquery: 'lib/jquery-2.1.1.min',
+        'text': 'lib/text/text',
+        jquery: 'lib/jquery/dist/jquery.min',
         json: 'lib/require/json',
         router: 'router',
-        underscore: 'lib/underscore',
-        mustache: 'lib/mustache',
-        backbone: 'lib/backbone',
-        "jquery-cookie": "lib/jquery.cookie"
+        underscore: 'lib/underscore/underscore',
+        mustache: 'lib/mustache/mustache',
+        backbone: 'lib/backbone/backbone',
+        "jquery-cookie": "lib/jquery.cookie/jquery.cookie"
     },
     shim: {
         "jquery-cookie": ["jquery"],

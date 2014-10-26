@@ -1,17 +1,17 @@
 require.config({
-    baseUrl: '../',
+    baseUrl: '/',
     paths: {
-        'text': './lib/text',
-        jquery: './lib/jquery-2.1.1.min',
-        json: './lib/require/json',
-        router: './router',
-        jasmine: './test/lib/jasmine-2.0.3/jasmine',
-        "jasmine-html": './test/lib/jasmine-2.0.3/jasmine-html',
-        boot: './test/lib/jasmine-2.0.3/boot',
-        underscore: './lib/underscore',
-        mustache: './lib/mustache',
-        backbone: './lib/backbone',
-        "jquery-cookie": "./lib/jquery.cookie"
+        'text': '../lib/text/text',
+        jquery: '../lib/jquery/dist/jquery.min',
+        json: '../lib/require/json',
+        router: '../router',
+        jasmine: './lib/jasmine-2.0.3/jasmine',
+        "jasmine-html": './lib/jasmine-2.0.3/jasmine-html',
+        boot: './lib/jasmine-2.0.3/boot',
+        underscore: '../lib/underscore/underscore',
+        mustache: '../lib/mustache/mustache',
+        backbone: '../lib/backbone/backbone',
+        "jquery-cookie": "../lib/jquery.cookie/jquery.cookie"
     },
     shim: {
         "jquery-cookie": ["jquery"],
