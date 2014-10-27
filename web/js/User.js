@@ -2,28 +2,12 @@ define([
     'jquery',
     'underscore',
     'mustache',
-    'js/localStorage',
     'js/UserSession'
-],function($, _, Mustache, localStorage, UserSession){
+],function($, _, Mustache, UserSession){
     'use strict';
-    function User( router ){
-        this.router = router;
-        this.loggedIn = this.hasToken();
-        this.email = localStorage.getPropertyFromItem("visitorDetails", "email") || localStorage.getItem("user-email");
+    function User(){
+
     }
-    User.prototype.hasToken = function(){
-        return (localStorage.getItem("authenticationToken")) ?  true : false;
-    };
-    User.prototype.setToken = function(token){
-        localStorage.setItem("authenticationToken",token);
-        this.token = token;
-    };
-
-    User.prototype.removeToken = function(){
-        localStorage.removeItem("authenticationToken");
-        this.token = "";
-    };
-
     User.prototype.login = function(userObject, callback) {
         var LoginAccount = Backbone.Model.extend({
             defaults: {
