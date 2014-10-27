@@ -26,6 +26,7 @@ define([
                 email: $('#fld_email').val()
             };
             user.create(userInfo);
+            window.app.navigate('login', true);
         },
         render: function(){
             this.$el.html(Mustache.to_html(createAccountTemplate, {data:"data"}));

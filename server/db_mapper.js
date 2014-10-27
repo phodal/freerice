@@ -65,7 +65,7 @@ DB.prototype.createAccount = function (account, callback) {
             });
         }
     });
-    var sql = "insert or replace into  user (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");";
+    var sql = "INSERT OR REPLACE INTO  USER (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");";
 
     var db = new sqlite3.Database("dev.db");
     db.all(sql, function (err, rows) {

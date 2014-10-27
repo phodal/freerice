@@ -19,7 +19,6 @@ define([
             }
         });
 
-        var that = this;
         var login = new LoginAccount({
             name: userObject.name,
             password: userObject.password
@@ -33,11 +32,8 @@ define([
                         "name": name,
                         "accessToken": response.accessToken
                     });
-                    console.log(UserSession);
                     callback();
-                    that.setToken("success");
                 } else {
-                    that.removeToken();
                 }
             },
             error: function(model, response) {
@@ -58,7 +54,6 @@ define([
             }
         });
 
-        var that = this;
         var login = new LoginAccount({
             name: userObject.name,
             email: userObject.email,
@@ -70,7 +65,6 @@ define([
                 if(response.status === "success"){
                     console.log("success");
                 } else {
-                    that.removeToken();
                 }
             },
             error: function(model, response) {
