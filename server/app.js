@@ -4,6 +4,8 @@ var DBService        = require('./db_service');
 var Authenticate    = require('./authenticate');
 var auth            = new Authenticate();
 var get_response    = new DBService();
+var Rice            = require('./rice');
+var rice            = new Rice();
 
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser());
@@ -23,6 +25,7 @@ server.get('/account/id/:id', get_response.getById);
 server.get('/account/name/:name', get_response.getByName);
 server.post('/login/user', auth.login);
 server.post('/account/create', auth.create);
+server.post('/rice/create', rice.create);
 
 server.get('/', restify.serveStatic({
     directory: 'web',

@@ -65,6 +65,7 @@ define([
                 if(response.status === "success"){
                     console.log("success");
                 } else {
+
                 }
             },
             error: function(model, response) {
