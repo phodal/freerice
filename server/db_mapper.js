@@ -80,4 +80,22 @@ DB.prototype.createAccount = function (account, callback) {
     });
 };
 
+DB.prototype.createRice = function (rice, callback) {
+    'use strict';
+
+    var sql = "INSERT OR REPLACE INTO  RICE (" + db_helper.getKey(rice) + ") VALUES (" + db_helper.getValue(rice) + ");";
+
+    var db = new sqlite3.Database("dev.db");
+    db.all(sql, function (err, rows) {
+        DB.prototype.errorHandler(err);
+        db.close();
+        if(_.isEmpty(rows)){
+            rows = {
+                "status": "success"
+            };
+        }
+        callback(rows);
+    });
+};
+
 module.exports = DB;

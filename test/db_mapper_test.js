@@ -20,3 +20,16 @@ describe('Create Account Test', function() {
         });
     });
 });
+
+describe('Create Rice Test', function() {
+    it('should return the create rice', function(done) {
+        var rice = { name: "zero", type: "user", quantity: 23, price:23, description: "newuser@phodal.com" };
+
+        sqlite.createRice(rice , function(result){});
+        sqlite.findAllRice(function(result){
+            if(result[0].description = "newuser@phodal.com"){
+                done();
+            }
+        });
+    });
+});
