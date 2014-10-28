@@ -3,25 +3,18 @@ define([
     'backbone',
     'underscore',
     'mustache',
-    'text!/templates/userProfile.html'
-],function($, Backbone, _, Mustache, userProfileTemplate){
+    'text!/templates/userProfile.html',
+    'js/UserModel'
+],function($, Backbone, _, Mustache, userProfileTemplate, UserModel){
     'use strict';
-    var ItemsModel = Backbone.Model.extend({});
-    var Items = Backbone.Collection.extend({
-        model: ItemsModel,
-        url: 'http://localhost:8080/account/name/admin',
-        parse: function(data) {
-            return data;
-        }
-    });
-
     var HomeView = Backbone.View.extend ({
         el: $("#content"),
 
         initialize: function(){
             var that = this;
-            this.collection = new Items();
+            this.collection = new UserModel();
             this.collection.fetch({
+                data:{ username: window.app.username },
                 success: function(){
                     that.render();
                 }

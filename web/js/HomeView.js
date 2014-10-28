@@ -3,24 +3,16 @@ define([
     'backbone',
     'underscore',
     'mustache',
-    'text!/templates/homepage_detail.html'
-],function($, Backbone, _, Mustache, homepageTemplate){
+    'text!/templates/homepage_detail.html',
+    'js/RiceModel'
+],function($, Backbone, _, Mustache, homepageTemplate, Rices){
     'use strict';
-    var ItemsModel = Backbone.Model.extend({});
-    var Items = Backbone.Collection.extend({
-        model: ItemsModel,
-        url: 'http://localhost:8080/all/rice',
-        parse: function(data) {
-            return data;
-        }
-    });
-
     var HomeView = Backbone.View.extend ({
         el: $("#content"),
 
         initialize: function(){
             var that = this;
-            this.collection = new Items();
+            this.collection = new Rices();
             this.collection.fetch({
                 success: function(){
                     that.render();

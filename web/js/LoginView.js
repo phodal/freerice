@@ -30,6 +30,7 @@ define([
                     accessToken: userInfo.name
                 });
                 window.app.navigate('userProfile', true);
+                window.app.username = UserSession.userName;
             });
         },
         render: function(){

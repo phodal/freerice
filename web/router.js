@@ -39,7 +39,6 @@ define([
             loginView.render();
         });
 
-
         router.on('route:admin', function(action) {
             console.log(UserSession.authenticated());
             if(UserSession.authenticated() !=true ){
