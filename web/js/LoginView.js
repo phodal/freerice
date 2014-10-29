@@ -3,8 +3,8 @@ define([
     'underscore',
     'mustache',
     'text!/templates/login.html',
-    'js/User',
-    'js/UserSession'
+    'js/lib/User',
+    'js/lib/UserSession'
 ],function($, _, Mustache, loginTemplate, User, UserSession){
     'use strict';
     var user = new User();

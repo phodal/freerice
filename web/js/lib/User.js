@@ -2,9 +2,9 @@ define([
     'jquery',
     'underscore',
     'mustache',
-    'js/UserSession',
-    'js/CreateAccount_Model'
-],function($, _, Mustache, UserSession, LoginAccount_Model){
+    'js/lib/UserSession',
+    'js/Model/CreateAccount_Model'
+],function($, _, Mustache, UserSession){
     'use strict';
     function User(){
 

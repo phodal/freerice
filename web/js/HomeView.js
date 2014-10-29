@@ -4,8 +4,8 @@ define([
     'underscore',
     'mustache',
     'text!/templates/homepage_detail.html',
-    'js/Rice_Model'
-],function($, Backbone, _, Mustache, homepageTemplate, Rice_Model){
+    'js/Model/Rice_Model'
+],function($, Backbone, _, Mustache, homepageTemplate){
     'use strict';
     var HomeView = Backbone.View.extend ({
         el: $("#content"),

@@ -5,9 +5,9 @@ define([
     'js/HomeView.js',
     'js/LoginView.js',
     'js/CreateAccountView.js',
-    'js/User.js',
+    'js/lib/User.js',
     'js/UserProfileView.js',
-    'js/UserSession.js'
+    'js/lib/UserSession.js'
 ],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession){
 
     var AppRouter = Backbone.Router.extend({
