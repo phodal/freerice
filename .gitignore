@@ -10,3 +10,5 @@ web/lib/mustache/
 web/lib/requirejs/
 web/lib/underscore/
 web/lib/text/
+.grunt
+_SpecRunner.html
