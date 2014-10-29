@@ -47,7 +47,6 @@ define([
         });
 
         router.on('route:userProfile', function(action) {
-            console.log(UserSession);
             if (UserSession.authenticated() == true) {
                 var userProfileView = new UserProfileView();
                 userProfileView.render();

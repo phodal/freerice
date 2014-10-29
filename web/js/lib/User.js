@@ -54,7 +54,7 @@ define([
         login.save({}, {
             success: function(model, response) {
                 if(response.status === "success"){
-                    console.log("success");
+                    console.log("login success");
                 } else {
 
                 }

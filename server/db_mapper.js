@@ -33,13 +33,13 @@ DB.prototype.getById = function (user_id, callback) {
 
 DB.prototype.getPasswordByName = function (user_name, callback) {
     'use strict';
-    var sql = "SELECT * FROM user WHERE name = '" + user_name + "'LIMIT 1";
+    var sql = "SELECT * FROM user WHERE name = '" + user_name + "' LIMIT 1";
     DB.prototype.basic(sql, callback);
 };
 
 DB.prototype.getByName = function (user_name, callback) {
     'use strict';
-    var sql = "SELECT id,name,email FROM user WHERE name = '" + user_name + "'LIMIT 1";
+    var sql = "SELECT id,name,email FROM user WHERE name = '" + user_name + "' LIMIT 1";
     DB.prototype.basic(sql, callback);
 };
 

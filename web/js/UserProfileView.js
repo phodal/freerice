@@ -12,7 +12,7 @@ define([
 
         initialize: function(){
             var that = this;
-            this.collection = new UserModel({username: window.app.username});
+            this.collection = new UserModel([], {username: "admin"});
             this.collection.fetch({
                 success: function(){
                     that.render();
@@ -23,8 +23,7 @@ define([
             this.$el.find("#content").remove();
             var result = [];
             _.each(this.collection.models, function(model){
-                console.log(model.attributes.username);
-                if(model.attributes.username !== null ){
+                if(model.username !== null ){
                     result.push(model.attributes);
                 }
             });
