@@ -14,19 +14,19 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 
 require.config({
   // Karma serves files under /base, which is the basePath from your config file
-  baseUrl: '/base',
+  baseUrl: './',
   paths: {
-    'text': 'web/lib/text/text',
-    jquery: 'web/lib/jquery/dist/jquery.min',
-    json: 'web/lib/require/json',
-    router: 'web/router',
-    jasmine: 'web/test/lib/jasmine-2.0.3/jasmine',
-    "jasmine-html": 'web/test/lib/jasmine-2.0.3/jasmine-html',
-    boot: 'web/test/lib/jasmine-2.0.3/boot',
-    underscore: 'web/lib/underscore/underscore',
-    mustache: 'web/lib/mustache/mustache',
-    backbone: 'web/lib/backbone/backbone',
-    "jquery-cookie": "web/lib/jquery.cookie/jquery.cookie"
+    'text': '../lib/text/text',
+    jquery: '../lib/jquery/dist/jquery.min.js',
+    json: '../lib/require/json',
+    router: '../router',
+    jasmine: 'lib/jasmine-2.0.3/jasmine',
+    "jasmine-html": 'lib/jasmine-2.0.3/jasmine-html',
+    boot: 'lib/jasmine-2.0.3/boot',
+    underscore: '../lib/underscore/underscore',
+    mustache: '../lib/mustache/mustache',
+    backbone: '../lib/backbone/backbone',
+    "jquery-cookie": "../lib/jquery.cookie/jquery.cookie.js"
   },
   shim: {
     "jquery-cookie": ["jquery"],
