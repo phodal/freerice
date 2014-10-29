@@ -3,23 +3,14 @@ define([
     'underscore',
     'mustache',
     'js/lib/UserSession',
-    'js/Model/CreateAccount_Model'
+    'js/Model/CreateAccount_Model',
+    'js/Model/User_Login'
 ],function($, _, Mustache, UserSession){
     'use strict';
     function User(){
 
     }
     User.prototype.login = function(userObject, callback) {
-        var LoginAccount = Backbone.Model.extend({
-            defaults: {
-                name: null,
-                password: null
-            },
-            url: function() {
-                return 'http://localhost:8080/login/user';
-            }
-        });
-
         var login = new LoginAccount({
             name: userObject.name,
             password: userObject.password
