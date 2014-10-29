@@ -10,33 +10,19 @@ module.exports = function (grunt) {
         template: require('grunt-template-jasmine-requirejs'),
         templateOptions:{
           requireConfig: {
-            baseUrl: 'web/test/',
+            baseUrl: './',
             paths: {
-              'text': '../lib/text/text',
-              jquery: '../lib/jquery/dist/jquery.min',
-              json: '../lib/require/json',
-              router: '../router',
-              jasmine: './lib/jasmine-2.0.3/jasmine',
-              "jasmine-html": './lib/jasmine-2.0.3/jasmine-html',
-              boot: './lib/jasmine-2.0.3/boot',
-              underscore: '../lib/underscore/underscore',
-              mustache: '../lib/mustache/mustache',
-              backbone: '../lib/backbone/backbone',
-              "jquery-cookie": "../lib/jquery.cookie/jquery.cookie"
+              'text': 'web/lib/text/text',
+              jquery: 'web/lib/jquery/dist/jquery.min',
+              json: 'web/lib/require/json',
+              router: 'web/router',
+              underscore: 'web/lib/underscore/underscore',
+              mustache: 'web/lib/mustache/mustache',
+              backbone: 'web/lib/backbone/backbone',
+              "jquery-cookie": "web/lib/jquery.cookie/jquery.cookie"
             },
             shim: {
               "jquery-cookie": ["jquery"],
-              'jasmine': {
-                exports: 'window.jasmineRequire'
-              },
-              'jasmine-html': {
-                deps: ['jasmine'],
-                exports: 'window.jasmineRequire'
-              },
-              'boot': {
-                deps: ['jasmine', 'jasmine-html'],
-                exports: 'window.jasmineRequire'
-              },
               underscore: {
                 exports: '_'
               }
