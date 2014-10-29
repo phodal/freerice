@@ -58,6 +58,7 @@ DB.prototype.findAllRice = function (callback) {
 DB.prototype.createAccount = function (account, callback) {
     'use strict';
 
+    console.log(account);
     DB.prototype.getByName(account.name, function(result){
         if(!_.isEmpty(result)){
             callback({

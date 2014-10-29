@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'mustache',
-    'js/UserSession'
-],function($, _, Mustache, UserSession){
+    'js/UserSession',
+    'js/CreateAccount_Model'
+],function($, _, Mustache, UserSession, LoginAccount_Model){
     'use strict';
     function User(){
 
@@ -43,18 +44,8 @@ define([
     };
 
     User.prototype.create = function(userObject) {
-        var LoginAccount = Backbone.Model.extend({
-            defaults: {
-                name: null,
-                email: null,
-                password: null
-            },
-            url: function() {
-                return 'http://localhost:8080/account/create';
-            }
-        });
 
-        var login = new LoginAccount({
+        var login = new CreateAccount({
             name: userObject.name,
             email: userObject.email,
             password: userObject.password

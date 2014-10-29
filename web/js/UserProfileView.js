@@ -4,17 +4,16 @@ define([
     'underscore',
     'mustache',
     'text!/templates/userProfile.html',
-    'js/UserModel'
-],function($, Backbone, _, Mustache, userProfileTemplate, UserModel){
+    'js/User_Model'
+],function($, Backbone, _, Mustache, userProfileTemplate, User_Model){
     'use strict';
     var HomeView = Backbone.View.extend ({
         el: $("#content"),
 
         initialize: function(){
             var that = this;
-            this.collection = new UserModel();
+            this.collection = new UserModel({username: window.app.username});
             this.collection.fetch({
-                data:{ username: window.app.username },
                 success: function(){
                     that.render();
                 }
@@ -24,7 +23,8 @@ define([
             this.$el.find("#content").remove();
             var result = [];
             _.each(this.collection.models, function(model){
-                if(model.attributes.quantity !== 0 ){
+                console.log(model.attributes.username);
+                if(model.attributes.username !== null ){
                     result.push(model.attributes);
                 }
             });
