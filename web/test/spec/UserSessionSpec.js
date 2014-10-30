@@ -1,6 +1,6 @@
 define([
   'jquery',
-  '../../js/lib/UserSession'
+  'js/lib/UserSession'
 ], function($, UserSession) {
   'use strict';
   describe("User Session", function() {
