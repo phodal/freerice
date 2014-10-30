@@ -21,7 +21,8 @@
     "mustache": "0.8.2",
     "requirejs": "2.1.14",
     "underscore": "1.6.0",
-    "text": "2.0.12"
+    "text": "2.0.12",
+    "sinon": "1.11.1"
   },
   "license": "MIT",
   "ignore": [

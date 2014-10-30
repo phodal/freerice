@@ -2,12 +2,6 @@ dev.db
 .jslint.conf
 .travis.yml
 coverage/
-web/lib/backbone/
-web/lib/jquery.cookie/
-web/lib/jquery/
-web/lib/mustache/
-web/lib/requirejs/
-web/lib/underscore/
-web/lib/text/
+web/lib
 .grunt
 _SpecRunner.html

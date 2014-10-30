@@ -19,7 +19,8 @@ module.exports = function (grunt) {
               underscore: 'lib/underscore/underscore',
               mustache: 'lib/mustache/mustache',
               backbone: 'lib/backbone/backbone',
-              "jquery-cookie": "lib/jquery.cookie/jquery.cookie"
+              "jquery-cookie": "lib/jquery.cookie/jquery.cookie",
+              sinon: "lib/sinon/lib/sinon"
             },
             shim: {
               "jquery-cookie": ["jquery"],

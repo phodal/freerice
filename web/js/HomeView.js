@@ -5,7 +5,7 @@ define([
     'mustache',
     'text!/templates/homepage_detail.html',
     'js/Model/Rice_Model'
-],function($, Backbone, _, Mustache, homepageTemplate){
+],function($, Backbone, _, Mustache, homepageTemplate, Rices){
     'use strict';
     var HomeView = Backbone.View.extend ({
         el: $("#content"),
