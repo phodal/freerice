@@ -23,6 +23,9 @@ module.exports = function (grunt) {
             },
             shim: {
               "jquery-cookie": ["jquery"],
+              backbone: {
+                exports:"Backbone"
+              },
               underscore: {
                 exports: '_'
               }
