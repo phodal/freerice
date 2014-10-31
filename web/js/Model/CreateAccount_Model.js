@@ -10,5 +10,6 @@ define(['backbone'], function(Backbone) {
             return 'http://localhost:8080/account/create';
         }
     });
+
     return CreateAccount;
 });

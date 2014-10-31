@@ -5,7 +5,7 @@ define([
     'js/lib/UserSession',
     'js/Model/CreateAccount_Model',
     'js/Model/User_Login'
-],function($, _, Mustache, UserSession, CreateAccount){
+],function($, _, Mustache, UserSession, CreateAccount, LoginAccount){
     'use strict';
     function User(){
 
