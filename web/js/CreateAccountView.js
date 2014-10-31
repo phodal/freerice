@@ -13,7 +13,6 @@ define([
         el: $("#content"),
 
         initialize: function(){
-            console.log('login');
         },
         events: {
             "click #createAccount": "create_account"

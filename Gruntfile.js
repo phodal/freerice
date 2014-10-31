@@ -20,6 +20,7 @@ module.exports = function (grunt) {
               mustache: 'lib/mustache/mustache',
               backbone: 'lib/backbone/backbone',
               "jquery-cookie": "lib/jquery.cookie/jquery.cookie",
+              "jasmine-jquery": "lib/jasmine-jquery/lib/jasmine-jquery",
               sinon: "lib/sinon/lib/sinon"
             },
             shim: {
