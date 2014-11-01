@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   "use strict";
 
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json')
     , jasmine: {
       src: "web/test/lib/*.js"
@@ -39,7 +40,9 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-jasmine');
-
-  grunt.registerTask('test', ['jasmine']);
-  grunt.registerTask('default', ['test']);
+  grunt.registerTask('server', 'Start a custom web server.', function() {
+    grunt.log.writeln('Starting web server on port 1234.');
+    require('./server/app.js');
+  });
+  grunt.registerTask('default', ['server','jasmine']);
 };
