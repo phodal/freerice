@@ -41,7 +41,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.registerTask('server', 'Start a custom web server.', function() {
-    grunt.log.writeln('Starting web server on port 1234.');
+    grunt.log.writeln('Starting web server on port 8080.');
     require('./server/app.js');
   });
   grunt.registerTask('default', ['server','jasmine']);

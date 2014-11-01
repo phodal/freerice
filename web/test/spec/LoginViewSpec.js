@@ -1,23 +1,21 @@
 define([
 	'jquery',
 	'js/LoginView',
+	'sinon',
 	'jasmine-jquery'
-], function($, LoginView) {
+], function($, LoginView, sinon) {
 	var view, model;
 
 	beforeEach(function() {
 		view = new LoginView();
-		view.$el.find('#username').val('test').trigger('change');
-		view.$el.find('#password').val('password').trigger('change');
-	});
-
-	beforeEach(function () {
-		view.$el.find('#login').trigger('click');
+		view.$el.find('#username').val('admin').trigger('change');
+		view.$el.find('#password').val('admin').trigger('change');
 	});
 
 	describe("when view is constructing", function() {
 		it("should return user name", function() {
 			expect(view).toBeDefined();
+			view.$el.find('#login').trigger('click');
 		});
 	});
 	describe("should have value", function() {
