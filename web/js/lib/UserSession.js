@@ -14,11 +14,15 @@ define([
             this.load();
         },
         authenticated: function(){
-            return !_.isEmpty($.cookie('accessToken'));
+            return !_.isEmpty($.cookie('accessToken')) && $.cookie('accessToken')!== null ;
         },
         save: function(authHash){
             $.cookie('name', authHash.name);
             $.cookie('accessToken', authHash.accessToken);
+        },
+        remove: function(){
+            $.cookie("name", '', { path: '/' });
+            $.cookie("accessToken", '', { path: '/' });
         },
         load: function(){
             this.userName = $.cookie('name');

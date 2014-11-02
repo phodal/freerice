@@ -7,8 +7,9 @@ define([
     'js/CreateAccountView.js',
     'js/lib/User.js',
     'js/UserProfileView.js',
-    'js/lib/UserSession.js'
-],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession){
+    'js/lib/UserSession.js',
+    'js/lib/Logout.js'
+],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession, Logout){
 
     var AppRouter = Backbone.Router.extend({
         routes: {
@@ -18,6 +19,7 @@ define([
             'admin': 'admin',
             'userProfile': 'userProfile',
             'userProfile/*userName': 'userProfile',
+            'account/logout': 'logout',
             '*actions': 'defaultAction'
         }
     });
@@ -37,6 +39,12 @@ define([
         router.on('route:Login', function() {
             var loginView = new LoginView();
             loginView.render();
+        });
+
+        router.on('route:logout', function() {
+            var logout = new Logout();
+            logout.logout();
+            router.navigate('/', true)
         });
 
         router.on('route:admin', function(action) {

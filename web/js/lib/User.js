@@ -35,7 +35,6 @@ define([
     };
 
     User.prototype.create = function(userObject) {
-
         var login = new CreateAccount({
             name: userObject.name,
             email: userObject.email,
