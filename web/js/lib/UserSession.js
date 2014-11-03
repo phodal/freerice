@@ -17,8 +17,8 @@ define([
             return !_.isEmpty($.cookie('accessToken')) && $.cookie('accessToken')!== null ;
         },
         save: function(authHash){
-            $.cookie('name', authHash.name);
-            $.cookie('accessToken', authHash.accessToken);
+            $.cookie('name', authHash.name, { expires: 0.5 });
+            $.cookie('accessToken', authHash.accessToken, { expires: 0.5 });
         },
         remove: function(){
             $.removeCookie('name');
