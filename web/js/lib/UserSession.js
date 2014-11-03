@@ -21,8 +21,8 @@ define([
             $.cookie('accessToken', authHash.accessToken);
         },
         remove: function(){
-            $.cookie("name", '', { path: '/' });
-            $.cookie("accessToken", '', { path: '/' });
+            $.removeCookie('name');
+            $.removeCookie('accessToken');
         },
         load: function(){
             this.userName = $.cookie('name');
