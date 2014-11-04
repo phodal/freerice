@@ -6,7 +6,6 @@ define(['backbone'], function(Backbone) {
             password: null
         },
         url: function() {
-            'use strict';
             return 'http://localhost:8080/account/create';
         }
     });

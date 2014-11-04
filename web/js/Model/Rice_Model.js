@@ -4,7 +4,6 @@ define(['backbone'], function(Backbone) {
         model: RiceModel,
         url: 'http://localhost:8080/all/rice',
         parse: function (data) {
-            'use strict';
             return data;
         }
     });
