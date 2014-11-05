@@ -30,11 +30,10 @@ Authenticate.prototype.login = function (req, res, next) {
         bcrypt.compare(account.password, _.first(result).password, function(err, success) {
             if (success) {
                 res.send({status: "success"});
-                next();
             } else {
                 res.send({status: "fail"});
-                next();
             }
+            next();
         });
     });
 };
@@ -55,13 +54,11 @@ Authenticate.prototype.create = function (req, res, next) {
         db.createAccount(account, function (result) {
             if (result.status === "success") {
                 res.send({status: "success"});
-                next();
             } else {
                 result = _.extend(result, {status: "fail"});
                 res.send(result);
-                next();
             }
-
+            next();
         });
     });
 };

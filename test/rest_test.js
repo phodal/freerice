@@ -157,19 +157,20 @@ describe('Visit Test', function() {
     });
 });
 
-//describe('Create User Test', function() {
-//    it('should return Name must be supplied when name repeat', function(done) {
-//        request.post({url:'http://127.0.0.1:8080/account/create',
-//            form: { name: "admin", password: "user", email: "newuser@phodal.com" }},
-//            function(err,httpResponse,body){
-//                if (err) {
-//                    throw new Error(err);
-//                }
-//                else {
-//                    if (body.err === "user exist") {
-//                        done();
-//                    }
-//                }
-//            });
-//    });
-//});
+describe('Create User Test', function() {
+    it('should return Name must be supplied when name repeat', function(done) {
+        request.post({url:'http://127.0.0.1:8080/account/create',
+            form: { name: "admin", password: "user", email: "newuser@phodal.com" }},
+            function(err, httpResponse, body){
+                if (err) {
+                    throw new Error(err);
+                }
+                else {
+
+                    if (JSON.parse(body).error === "user exist") {
+                        done();
+                    }
+                }
+            });
+    });
+});

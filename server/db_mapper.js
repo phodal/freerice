@@ -58,25 +58,31 @@ DB.prototype.findAllRice = function (callback) {
 DB.prototype.createAccount = function (account, callback) {
     'use strict';
 
+    function createNewAccount() {
+        var sql = "INSERT OR REPLACE INTO  USER (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");";
+
+        var db = new sqlite3.Database("dev.db");
+        db.all(sql, function (err, rows) {
+            DB.prototype.errorHandler(err);
+            db.close();
+            if (_.isEmpty(rows)) {
+                rows = {
+                    "status": "success"
+                };
+            } else {
+                rows = {};
+            }
+            callback(rows);
+        });
+    }
+
     DB.prototype.getByName(account.name, function(result){
         if(!_.isEmpty(result)){
-            callback({
+            return callback({
                 "error": "user exist"
             });
         }
-    });
-    var sql = "INSERT OR REPLACE INTO  USER (" + db_helper.getKey(account) + ") VALUES (" + db_helper.getValue(account) + ");";
-
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        DB.prototype.errorHandler(err);
-        db.close();
-        if(_.isEmpty(rows)){
-            rows = {
-                "status": "success"
-            };
-        }
-        callback(rows);
+        createNewAccount();
     });
 };
 
