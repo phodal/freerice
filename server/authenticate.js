@@ -51,9 +51,7 @@ Authenticate.prototype.create = function (req, res, next) {
         if (err) {
             throw new Error(err);
         }
-
         account.password = password;
-
         db.createAccount(account, function (result) {
             if (result.status === "success") {
                 res.send({status: "success"});

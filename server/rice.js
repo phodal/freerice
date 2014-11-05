@@ -17,7 +17,7 @@ Rice.prototype.create = function (req, res, next) {
         return next(new restify.InvalidArgumentError('Name must be supplied'));
     }
 
-    db.createRice(rice, function (result) {
+    db.createRice(rice, function(result) {
         if (result.status === "success") {
             res.send({status: "success"});
             next();
