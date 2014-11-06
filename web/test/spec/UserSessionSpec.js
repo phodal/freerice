@@ -1,7 +1,6 @@
 define([
-  'jquery',
   'js/lib/UserSession'
-], function($, UserSession) {
+], function(UserSession) {
   'use strict';
   describe("User Session", function() {
     it("should return default name,accessToken be null", function() {

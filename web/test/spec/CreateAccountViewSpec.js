@@ -3,7 +3,7 @@ define([
 	'js/CreateAccountView',
 	'jasmine-jquery'
 ], function($, CreateAccountView) {
-	var view, model;
+	var view;
 
 	beforeEach(function() {
 		view = new CreateAccountView();

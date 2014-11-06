@@ -1,8 +1,7 @@
 define([
-	'jquery',
 	'sinon',
 	'js/Model/Rice_Model'
-], function($, sinon, Rices) {
+], function(sinon, Rices) {
 	'use strict';
 
 	beforeEach(function() {

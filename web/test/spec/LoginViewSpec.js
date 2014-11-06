@@ -1,10 +1,9 @@
 define([
 	'jquery',
 	'js/LoginView',
-	'sinon',
 	'jasmine-jquery'
-], function($, LoginView, sinon) {
-	var view, model;
+], function($, LoginView) {
+	var view;
 
 	beforeEach(function() {
 		view = new LoginView();

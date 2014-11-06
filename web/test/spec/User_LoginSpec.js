@@ -1,7 +1,6 @@
 define([
-	'jquery',
 	'js/Model/CreateAccount_Model'
-], function($, CreateAccount) {
+], function(CreateAccount) {
 	'use strict';
 
 	beforeEach(function() {
