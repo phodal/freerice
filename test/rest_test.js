@@ -121,7 +121,7 @@ describe('Create User Test', function() {
             }
             else {
                 if (data.status != "success") {
-                    throw new Error('login failed');
+                    throw new Error('create failed');
                 }
                 res.destroy();
                 done();

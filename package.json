@@ -6,7 +6,7 @@
     "url": "git@github.com:phodal/freerice.git"
   },
   "dependencies": {
-    "underscore": "1.6.0",
+    "underscore": "1.7.0",
     "restify": "2.8.3",
     "sqlite3": "3.0.2",
     "db-migrate": "0.7.1",
@@ -31,11 +31,11 @@
     "grunt-contrib-jasmine": "0.8.1",
     "grunt-template-jasmine-requirejs": "0.2.0",
     "grunt-exec": "0.4.5",
-    "mocha": "~1.21.4",
+    "mocha": "~2.0.1",
     "pre-commit": "0.0.9",
     "request": "2.45.0",
     "requirejs": "^2.1.15",
-    "sinon": "~1.7.3"
+    "sinon": "~1.11.1"
   },
   "pre-commit": [
     "test",
