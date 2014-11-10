@@ -1,13 +1,16 @@
-<table>
-    <tr>
-        <th>Name</th>
-        <th>email</th>
-    </tr>
-
+<table class="pure-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>email</th>
+        </tr>
+    </thead>
     {{#.}}
-    <tr>
-        <td>{{name}}</td>
-        <td>{{email}}</td>
-    </tr>
+    <tbody>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+        </tr>
+    </tbody>
     {{/.}}
 </table>
