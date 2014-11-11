@@ -1,29 +1,15 @@
 var sqlite3         = require('sqlite3').verbose();
 var _               = require('underscore');
-var DBHelper       = require('./db_helper');
-var db_helper = new DBHelper();
+var DBHelper        = require('./db_helper');
+var db_helper       = new DBHelper();
+var DBPrototype     = require('./db_prototype');
 
 function AccountDB() {
     'use strict';
     return;
 }
 
-AccountDB.prototype.errorHandler = function (err) {
-    'use strict';
-    if (err !== null) {
-        throw err;
-    }
-};
-
-AccountDB.prototype.basic = function(sql, db_callback){
-    'use strict';
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        AccountDB.prototype.errorHandler(err);
-        db.close();
-        db_callback(rows);
-    });
-};
+AccountDB.prototype = new DBPrototype();
 
 AccountDB.prototype.getAccountById = function (user_id, callback) {
     'use strict';
