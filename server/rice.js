@@ -14,7 +14,7 @@ Rice.prototype.create = function (req, res, next) {
     var rice = req.params;
     var verifyInput = rice.name === undefined || rice.type === undefined || rice.price === undefined || rice.quantity === undefined || rice.description === undefined;
     if (verifyInput) {
-        return next(new restify.InvalidArgumentError('Name must be supplied'));
+        return next(new restify.InvalidArgumentError('String must be supplied'));
     }
 
     db.createRice(rice, function(result) {
