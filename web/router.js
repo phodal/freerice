@@ -25,7 +25,7 @@ define([
         },
         index: function(){
             var homeView = new HomeView();
-            homeView();
+            homeView.initialize();
         },
         createAccount: function(){
             var createAccountView = new CreateAccountView();

@@ -1,5 +1,5 @@
 define([
-	'js/Model/CreateAccount_Model'
+	'js/Model/CreateAccountModel'
 ], function(CreateAccount) {
 	'use strict';
 

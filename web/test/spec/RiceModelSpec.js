@@ -1,6 +1,6 @@
 define([
 	'sinon',
-	'js/Model/Rice_Model'
+	'js/Model/RiceModel'
 ], function(sinon, Rices) {
 	'use strict';
 	var data = {"id":1,"name":"Rice","type":"Good","price":12,"quantity":1,"description":"Made in China"};

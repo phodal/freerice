@@ -3,8 +3,8 @@ define([
     'underscore',
     'mustache',
     'js/lib/UserSession',
-    'js/Model/CreateAccount_Model',
-    'js/Model/User_Login'
+    '../Model/CreateAccountModel',
+    '../Model/UserLogin'
 ],function($, _, Mustache, UserSession, CreateAccount, LoginAccount){
     'use strict';
     function User(){
