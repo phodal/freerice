@@ -64,16 +64,10 @@ define([
             _.each(routes, function(route) {
                 router.route.apply(router,route);
             });
+            Backbone.history.start();
         }
     });
 
-    var initialize = function() {
-        new AppRouter;
-        Backbone.history.start();
-    };
-
     window.app = new AppRouter();
-    return {
-      initialize: initialize
-    };
+    return AppRouter;
 });
