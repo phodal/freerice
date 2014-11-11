@@ -1,7 +1,9 @@
-var RiceMapper   = require("./../mapper/rice_mapper");
+var RiceMapper      = require("./../mapper/rice_mapper");
 var db              = new RiceMapper();
 var _               = require("underscore");
 var restify         = require("restify");
+var ServiceHelper   = require("./service_helper");
+var serviceHelper   = new ServiceHelper();
 
 function Rice() {
     'use strict';
@@ -20,8 +22,8 @@ Rice.prototype.create = function (req, res, next) {
     'use strict';
 
     var rice = req.params;
-    var verifyInput = rice.name === undefined || rice.type === undefined || rice.price === undefined || rice.quantity === undefined || rice.description === undefined;
-    if (verifyInput) {
+
+    if (serviceHelper.verifyRiceInput(rice)) {
         return next(new restify.InvalidArgumentError('String must be supplied'));
     }
 

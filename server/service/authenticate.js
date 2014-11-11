@@ -1,17 +1,11 @@
 var AccountMapper  = require("./../mapper/account_mapper");
-var db             = new AccountMapper();
 var _              = require("underscore");
 var restify        = require("restify");
 var bcrypt         = require('bcrypt');
+var ServiceHelper  = require("./service_helper");
 
-function encryptPassword(password, cb) {
-    'use strict';
-    bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(password, salt, function(err, hash) {
-            cb(null, hash);
-        });
-    });
-}
+var db             = new AccountMapper();
+var serviceHelper  = new ServiceHelper();
 
 function Authenticate() {
     'use strict';
@@ -42,11 +36,11 @@ Authenticate.prototype.create = function (req, res, next) {
     'use strict';
 
     var account = req.params;
-    if (account.name === undefined || account.password === undefined || account.email === undefined) {
+    if (serviceHelper.verifyAccountInput(account)) {
         return next(new restify.InvalidArgumentError('Name must be supplied'));
     }
 
-    encryptPassword(account.password, function (err, password) {
+    serviceHelper.encryptPassword(account.password, function (err, password) {
         if (err) {
             throw new Error(err);
         }
