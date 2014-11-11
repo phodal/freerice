@@ -1,3 +1,5 @@
+"use strict";
+
 define(['backbone'], function(Backbone) {
     var LoginAccount = Backbone.Model.extend({
         defaults: {

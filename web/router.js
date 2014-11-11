@@ -1,3 +1,5 @@
+"use strict";
+
 define([
     'jquery',
     'underscore',
@@ -22,7 +24,8 @@ define([
             '*actions': 'defaultAction'
         },
         index: function(){
-            new HomeView();
+            var homeView = new HomeView();
+            homeView();
         },
         createAccount: function(){
             var createAccountView = new CreateAccountView();
@@ -35,19 +38,19 @@ define([
         logout: function(){
             var logout = new Logout();
             logout.logout();
-            this.navigate('/', true)
+            this.navigate('/', true);
         },
         admin: function(){
-            if(UserSession.authenticated() !=true ){
-                this.navigate('account/login', true)
+            if(UserSession.authenticated() !== true ){
+                this.navigate('account/login', true);
             }
         },
         userProfile: function(){
-            if (UserSession.authenticated() == true) {
+            if (UserSession.authenticated() === true) {
                 var userProfileView = new UserProfileView();
                 userProfileView.render();
             } else {
-                this.navigate('account/login', true)
+                this.navigate('account/login', true);
             }
         },
         initialize: function() {

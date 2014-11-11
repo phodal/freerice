@@ -1,3 +1,5 @@
+"use strict";
+
 define(['backbone'], function(Backbone) {
     var RiceModel = Backbone.Model.extend({});
     var Rices = Backbone.Collection.extend({

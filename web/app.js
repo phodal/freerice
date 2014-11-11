@@ -1,3 +1,5 @@
+"use strict";
+
 define([
     'jquery',
     'underscore',
@@ -6,7 +8,7 @@ define([
 ], function($, _, Backbone, Router){
 
     var initialize = function(){
-        new Router();
+        this.router = new Router();
     };
 
     return {

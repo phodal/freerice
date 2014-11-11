@@ -1,3 +1,5 @@
+"use strict";
+
 define(['backbone'], function(Backbone) {
     var CreateAccount = Backbone.Model.extend({
         defaults: {

@@ -1,7 +1,8 @@
+"use strict";
+
 define(['backbone'], function(Backbone) {
     var User = Backbone.Model.extend({
         initialize : function(username) {
-            'use strict';
             this.username = username;
         },
         defaults:{
@@ -14,7 +15,6 @@ define(['backbone'], function(Backbone) {
             username:null
         },
         initialize : function(models, options) {
-            'use strict';
             this.user = new User(this.get('username'));
             this.username = options.username;
         },
