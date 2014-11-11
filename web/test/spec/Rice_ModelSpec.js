@@ -3,19 +3,20 @@ define([
 	'js/Model/Rice_Model'
 ], function(sinon, Rices) {
 	'use strict';
+	var data = {"id":1,"name":"Rice","type":"Good","price":12,"quantity":1,"description":"Made in China"};
 
 	beforeEach(function() {
 		this.server = sinon.fakeServer.create();
 		this.rices = new Rices();
-		//this.server.respondWith(
-		//	"GET",
-		//	"http://localhost:8080/all/rice",
-		//	[
-		//		200,
-		//		{"Content-Type": "application/json"},
-		//		'{"response":"json response here"}'
-		//	]
-		//);
+		this.server.respondWith(
+			"GET",
+			"http://localhost:8080/all/rice",
+			[
+				200,
+				{"Content-Type": "application/json"},
+				JSON.stringify(data)
+			]
+		);
 	});
 
 	afterEach(function() {
@@ -33,9 +34,16 @@ define([
 				.toEqual("http://localhost:8080/all/rice");
 		});
 
-		//it("should request the url and fetch", function() {
-		//	this.rices.fetch();
-		//	this.server.respond();
-		//});
+		it("should get data from the url", function() {
+			this.rices.fetch();
+			this.server.respond();
+			var result = JSON.parse(JSON.stringify(this.rices.models[0]));
+			expect(result["id"])
+				.toEqual(1);
+			expect(result["price"])
+				.toEqual(12);
+			expect(result)
+				.toEqual(data);
+		});
 	});
 });
