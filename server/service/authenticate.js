@@ -1,8 +1,8 @@
-var AccountDB      = require("./../mapper/account_mapper");
-var db      = new AccountDB();
-var _       = require("underscore");
-var restify = require("restify");
-var bcrypt  = require('bcrypt');
+var AccountMapper  = require("./../mapper/account_mapper");
+var db             = new AccountMapper();
+var _              = require("underscore");
+var restify        = require("restify");
+var bcrypt         = require('bcrypt');
 
 function encryptPassword(password, cb) {
     'use strict';

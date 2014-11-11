@@ -1,7 +1,5 @@
 var http           = require('http');
 var bl             = require('bl');
-var restify        = require('restify');
-var request        = require('request');
 
 describe('Get Data Test', function () {
     before(function() {

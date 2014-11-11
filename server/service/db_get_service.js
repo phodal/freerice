@@ -1,5 +1,5 @@
-var AccountDB              = require("./../mapper/account_mapper");
-var sqlite        = new AccountDB();
+var AccountMapper = require("./../mapper/account_mapper");
+var db        = new AccountMapper();
 
 function DBService() {
     'use strict';
@@ -9,7 +9,7 @@ function DBService() {
 DBService.prototype.getAccountById = function (req, res, next) {
     'use strict';
     var userId = req.params.id;
-    sqlite.getAccountById(userId, function (result) {
+    db.getAccountById(userId, function (result) {
         res.send(result);
         next();
     });
@@ -18,7 +18,7 @@ DBService.prototype.getAccountById = function (req, res, next) {
 DBService.prototype.getAccountByName = function (req, res, next) {
     'use strict';
     var userName = req.params.name;
-    sqlite.getAccountByName(userName, function (result) {
+    db.getAccountByName(userName, function (result) {
         res.send(result);
         next();
     });
@@ -26,19 +26,10 @@ DBService.prototype.getAccountByName = function (req, res, next) {
 
 DBService.prototype.findAllAccount = function (req, res, next) {
     'use strict';
-    sqlite.findAllAccount(function (result) {
+    db.findAllAccount(function (result) {
         res.send(result);
         next();
     });
 };
-
-DBService.prototype.findAllRice = function (req, res, next) {
-    'use strict';
-    sqlite.findAllRice(function (result) {
-        res.send(result);
-        next();
-    });
-};
-
 
 module.exports = DBService;

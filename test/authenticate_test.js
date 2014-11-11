@@ -42,6 +42,4 @@ describe('User Login Test', function() {
         });
     });
 
-});/**
- * Created by fdhuang on 11/11/14.
- */
+});

@@ -4,44 +4,38 @@ var DBHelper        = require('./db_helper');
 var db_helper       = new DBHelper();
 var DBPrototype     = require('./db_prototype');
 
-function AccountDB() {
+function AccountMapper() {
     'use strict';
     return;
 }
 
-AccountDB.prototype = new DBPrototype();
+AccountMapper.prototype = new DBPrototype();
 
-AccountDB.prototype.getAccountById = function (user_id, callback) {
+AccountMapper.prototype.getAccountById = function (user_id, callback) {
     'use strict';
     var sql = "SELECT id,name,email FROM user WHERE id = " + user_id;
-    AccountDB.prototype.basic(sql, callback);
+    AccountMapper.prototype.basic(sql, callback);
 };
 
-AccountDB.prototype.getPasswordByName = function (user_name, callback) {
+AccountMapper.prototype.getPasswordByName = function (user_name, callback) {
     'use strict';
     var sql = "SELECT * FROM user WHERE name = '" + user_name + "' LIMIT 1";
-    AccountDB.prototype.basic(sql, callback);
+    AccountMapper.prototype.basic(sql, callback);
 };
 
-AccountDB.prototype.getAccountByName = function (user_name, callback) {
+AccountMapper.prototype.getAccountByName = function (user_name, callback) {
     'use strict';
     var sql = "SELECT id,name,email FROM user WHERE name = '" + user_name + "' LIMIT 1";
-    AccountDB.prototype.basic(sql, callback);
+    AccountMapper.prototype.basic(sql, callback);
 };
 
-AccountDB.prototype.findAllAccount = function (callback) {
+AccountMapper.prototype.findAllAccount = function (callback) {
     'use strict';
     var sql = "SELECT id,name,email FROM user";
-    AccountDB.prototype.basic(sql, callback);
+    AccountMapper.prototype.basic(sql, callback);
 };
 
-AccountDB.prototype.findAllRice = function (callback) {
-    'use strict';
-    var sql = "SELECT * FROM rice";
-    AccountDB.prototype.basic(sql, callback);
-};
-
-AccountDB.prototype.createAccount = function (account, callback) {
+AccountMapper.prototype.createAccount = function (account, callback) {
     'use strict';
 
     function createNewAccount() {
@@ -49,7 +43,7 @@ AccountDB.prototype.createAccount = function (account, callback) {
 
         var db = new sqlite3.Database("dev.db");
         db.all(sql, function (err, rows) {
-            AccountDB.prototype.errorHandler(err);
+            AccountMapper.prototype.errorHandler(err);
             db.close();
             if (_.isEmpty(rows)) {
                 rows = {
@@ -62,7 +56,7 @@ AccountDB.prototype.createAccount = function (account, callback) {
         });
     }
 
-    AccountDB.prototype.getAccountByName(account.name, function(result){
+    AccountMapper.prototype.getAccountByName(account.name, function(result){
         if(!_.isEmpty(result)){
             return callback({
                 "error": "user exist"
@@ -72,22 +66,4 @@ AccountDB.prototype.createAccount = function (account, callback) {
     });
 };
 
-AccountDB.prototype.createRice = function (rice, callback) {
-    'use strict';
-
-    var sql = "INSERT OR REPLACE INTO  RICE (" + db_helper.getKey(rice) + ") VALUES (" + db_helper.getValue(rice) + ");";
-
-    var db = new sqlite3.Database("dev.db");
-    db.all(sql, function (err, rows) {
-        AccountDB.prototype.errorHandler(err);
-        db.close();
-        if(_.isEmpty(rows)){
-            rows = {
-                "status": "success"
-            };
-        }
-        callback(rows);
-    });
-};
-
-module.exports = AccountDB;
+module.exports = AccountMapper;

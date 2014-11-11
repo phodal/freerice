@@ -1,12 +1,20 @@
-var AccountDB      = require("./../mapper/account_mapper");
-var db      = new AccountDB();
-var _       = require("underscore");
-var restify = require("restify");
+var RiceMapper   = require("./../mapper/rice_mapper");
+var db              = new RiceMapper();
+var _               = require("underscore");
+var restify         = require("restify");
 
 function Rice() {
     'use strict';
     return;
 }
+
+Rice.prototype.findAllRice = function (req, res, next) {
+    'use strict';
+    db.findAllRice(function (result) {
+        res.send(result);
+        next();
+    });
+};
 
 Rice.prototype.create = function (req, res, next) {
     'use strict';
