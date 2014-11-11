@@ -1,5 +1,5 @@
-var DB           =require("../server/db_mapper");
-var sqlite       = new DB();
+var AccountDB           =require("../server/mapper/account_mapper");
+var sqlite       = new AccountDB();
 
 describe('Throw  Error Test', function() {
     it('should throw error on errorHandler', function () {

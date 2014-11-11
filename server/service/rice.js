@@ -1,5 +1,5 @@
-var DB      = require("./db_mapper");
-var db      = new DB();
+var AccountDB      = require("./../mapper/account_mapper");
+var db      = new AccountDB();
 var _       = require("underscore");
 var restify = require("restify");
 

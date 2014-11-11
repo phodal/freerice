@@ -1,10 +1,10 @@
 var restify         = require('restify');
 var server          = restify.createServer();
-var DBService        = require('./db_service');
-var Authenticate    = require('./authenticate');
+var DBService        = require('./service/db_get_service');
+var Authenticate    = require('./service/authenticate');
 var auth            = new Authenticate();
 var get_response    = new DBService();
-var Rice            = require('./rice');
+var Rice            = require('./service/rice');
 var rice            = new Rice();
 
 server.use(restify.gzipResponse());
@@ -21,8 +21,8 @@ server.use(
 
 server.get('/all/account', get_response.findAllAccount);
 server.get('/all/rice', get_response.findAllRice);
-server.get('/account/id/:id', get_response.getById);
-server.get('/account/name/:name', get_response.getByName);
+server.get('/account/id/:id', get_response.getAccountById);
+server.get('/account/name/:name', get_response.getAccountByName);
 server.post('/login/user', auth.login);
 server.post('/account/create', auth.create);
 server.post('/rice/create', rice.create);

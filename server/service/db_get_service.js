@@ -1,24 +1,24 @@
-var DB              = require("./db_mapper");
-var sqlite        = new DB();
+var AccountDB              = require("./../mapper/account_mapper");
+var sqlite        = new AccountDB();
 
 function DBService() {
     'use strict';
     return;
 }
 
-DBService.prototype.getById = function (req, res, next) {
+DBService.prototype.getAccountById = function (req, res, next) {
     'use strict';
     var userId = req.params.id;
-    sqlite.getById(userId, function (result) {
+    sqlite.getAccountById(userId, function (result) {
         res.send(result);
         next();
     });
 };
 
-DBService.prototype.getByName = function (req, res, next) {
+DBService.prototype.getAccountByName = function (req, res, next) {
     'use strict';
     var userName = req.params.name;
-    sqlite.getByName(userName, function (result) {
+    sqlite.getAccountByName(userName, function (result) {
         res.send(result);
         next();
     });
