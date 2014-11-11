@@ -1,4 +1,5 @@
 var bcrypt         = require('bcrypt');
+var _              = require('underscore');
 
 function ServiceHelper() {
     'use strict';
@@ -6,10 +7,12 @@ function ServiceHelper() {
 }
 
 ServiceHelper.prototype.verifyRiceInput = function (rice) {
+    'use strict';
     return rice.name === undefined || rice.type === undefined || rice.price === undefined || rice.quantity === undefined ||rice.description === undefined;
 };
 
 ServiceHelper.prototype.verifyAccountInput = function (account) {
+    'use strict';
     return account.name === undefined || account.password === undefined || account.email === undefined;
 };
 
