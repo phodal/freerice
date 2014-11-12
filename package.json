@@ -33,6 +33,7 @@
     "istanbul": "0.3.2",
     "jslint": "0.6.4",
     "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
     "grunt-contrib-connect":"0.8.0",
     "grunt-contrib-jasmine": "0.8.1",
     "grunt-template-jasmine-requirejs": "0.2.0",
