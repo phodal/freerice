@@ -13,16 +13,6 @@ define([
     'js/lib/Logout.js'
 ],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession, Logout){
     var AppRouter = Backbone.Router.extend({
-        routes: {
-            'index': 'homePage',
-            'account/create': 'Create',
-            'account/login': 'Login',
-            'admin': 'admin',
-            'userProfile': 'userProfile',
-            'userProfile/*userName': 'userProfile',
-            'account/logout': 'logout',
-            '*actions': 'defaultAction'
-        },
         index: function(){
             var homeView = new HomeView();
             homeView.initialize();
