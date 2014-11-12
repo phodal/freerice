@@ -67,6 +67,7 @@ define([
             _.each(routes, function(route) {
                 router.route.apply(router,route);
             });
+            Backbone.history.stop();
             Backbone.history.start();
         }
     });

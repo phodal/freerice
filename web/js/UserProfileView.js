@@ -4,7 +4,7 @@ define([
     'underscore',
     'mustache',
     'text!/templates/userProfile.html',
-    'Model/UserModel'
+    'js/Model/UserModel'
 ],function($, Backbone, _, Mustache, userProfileTemplate, UserModel){
     'use strict';
     var HomeView = Backbone.View.extend ({
