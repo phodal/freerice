@@ -42,7 +42,8 @@
     "pre-commit": "0.0.9",
     "request": "2.45.0",
     "requirejs": "^2.1.15",
-    "sinon": "~1.11.1"
+    "sinon": "~1.11.1",
+    "zombie": "1.4.1"
   },
   "pre-commit": [
     "jslint",
