@@ -5,13 +5,13 @@ var RiceMapper  =require("../server/mapper/rice_mapper");
 var riceDB         = new RiceMapper();
 
 
-describe('Throw  Error Test', function() {
+describe('Throw Error Test', function() {
     it('should throw error on errorHandler', function () {
         expect(sqlite.errorHandler()).to.throw();
     });
 });
 
-describe('Create Account Test', function() {
+describe('Create Account Mapper Test', function() {
     it('should return user exist when create account again', function(done) {
         var account = { name: "zero", password: "user", email: "newuser@phodal.com" };
         sqlite.createAccount(account , function(result){
@@ -25,7 +25,7 @@ describe('Create Account Test', function() {
     });
 });
 
-describe('Create Rice Test', function() {
+describe('Create Rice Mapper Test', function() {
     it('should return the create rice', function(done) {
         var rice = { name: "zero", type: "user", quantity: 23, price:23, description: "newuser@phodal.com" };
 

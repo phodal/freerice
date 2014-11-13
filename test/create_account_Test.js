@@ -23,11 +23,12 @@ describe('Create User Test', function() {
                 throw new Error(err);
             }
             else {
-                if (data.status != "success") {
+                if (data.status !== "success") {
                     throw new Error('create failed');
+                } else {
+                    res.destroy();
+                    done();
                 }
-                res.destroy();
-                done();
             }
         });
     });
@@ -42,7 +43,7 @@ describe('Create User Test', function() {
     });
 });
 
-describe('Visit Test', function() {
+describe('Visit User Test', function() {
     it('should return 404 when visit the /account/create', function (done) {
         request('http://127.0.0.1:8080/account/create', function (error, response, body) {
             if (response.statusCode === 404) {
@@ -69,7 +70,6 @@ describe('Create User Test', function() {
                     throw new Error(err);
                 }
                 else {
-
                     if (JSON.parse(body).error === "user exist") {
                         done();
                     }
