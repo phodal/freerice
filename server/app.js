@@ -4,10 +4,10 @@ var server          = restify.createServer();
 var Authenticate    = require('./service/authenticate');
 var auth            = new Authenticate();
 
-var DBService        = require('./service/db_get_service');
+var DBService        = require('./service/account_service');
 var get_response    = new DBService();
 
-var Rice            = require('./service/rice');
+var Rice            = require('./service/rice_service');
 var rice            = new Rice();
 
 server.use(restify.gzipResponse());
