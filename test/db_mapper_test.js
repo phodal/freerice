@@ -12,11 +12,9 @@ describe('Throw Error Test', function() {
 });
 
 describe('Create Account Mapper Test', function() {
+    var account = { name: "zero", password: "user", email: "newuser@phodal.com" };
+    sqlite.createAccount(account , function(result){});
     it('should return user exist when create account again', function(done) {
-        var account = { name: "zero", password: "user", email: "newuser@phodal.com" };
-        sqlite.createAccount(account , function(result){
-            done();
-        });
         sqlite.createAccount(account , function(result){
             if(result.error === "user exist"){
                 done();
