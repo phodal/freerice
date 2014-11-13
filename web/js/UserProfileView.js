@@ -4,15 +4,16 @@ define([
     'underscore',
     'mustache',
     'text!/templates/userProfile.html',
-    'js/Model/UserModel'
-],function($, Backbone, _, Mustache, userProfileTemplate, UserModel){
+    'js/Model/UserModel',
+    'js/lib/UserSession'
+],function($, Backbone, _, Mustache, userProfileTemplate, UserModel, UserSession){
     'use strict';
     var HomeView = Backbone.View.extend ({
         el: $("#content"),
 
         initialize: function(){
             var that = this;
-            this.collection = new UserModel([], {username: "admin"});
+            this.collection = new UserModel([], {username: UserSession.principal()});
             this.collection.fetch({
                 success: function(){
                     that.render();

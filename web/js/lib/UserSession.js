@@ -16,6 +16,9 @@ define([
         authenticated: function(){
             return !_.isEmpty($.cookie('accessToken')) && $.cookie('accessToken')!== null ;
         },
+        principal: function() {
+            return $.cookie('name');
+        },
         save: function(authHash){
             $.cookie('name', authHash.name, { expires: 0.5 });
             $.cookie('accessToken', authHash.accessToken, { expires: 0.5 });
