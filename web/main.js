@@ -8,7 +8,8 @@ require.config({
         underscore: 'lib/underscore/underscore',
         mustache: 'lib/mustache/mustache',
         backbone: 'lib/backbone/backbone',
-        "jquery-cookie": "lib/jquery.cookie/jquery.cookie"
+        "jquery-cookie": "lib/jquery.cookie/jquery.cookie",
+        "config": 'config'
     },
     shim: {
         "jquery-cookie": ["jquery"],

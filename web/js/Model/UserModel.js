@@ -1,6 +1,6 @@
 "use strict";
 
-define(['backbone'], function(Backbone) {
+define(['backbone', "config"], function(Backbone, config) {
     var User = Backbone.Model.extend({
         initialize : function(username) {
             this.username = username;
@@ -19,7 +19,7 @@ define(['backbone'], function(Backbone) {
             this.username = options.username;
         },
         model: User,
-        urlRoot: 'http://0.0.0.0:8080/account/name/',
+        urlRoot: config.localhost + '/account/name/',
         "url": function () {
             return this.urlRoot + this.username;
         }

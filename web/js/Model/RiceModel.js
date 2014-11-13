@@ -1,10 +1,10 @@
 "use strict";
 
-define(['backbone'], function(Backbone) {
+define(['backbone', "config"], function(Backbone, config) {
     var RiceModel = Backbone.Model.extend({});
     var Rices = Backbone.Collection.extend({
         model: RiceModel,
-        url: 'http://localhost:8080/all/rice',
+        url: config.localhost + '/all/rice',
         parse: function (data) {
             return data;
         }

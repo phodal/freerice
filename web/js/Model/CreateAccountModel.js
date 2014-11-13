@@ -1,6 +1,6 @@
 "use strict";
 
-define(['backbone'], function(Backbone) {
+define(["backbone", "config"], function(Backbone, config) {
     var CreateAccount = Backbone.Model.extend({
         defaults: {
             name: null,
@@ -8,7 +8,7 @@ define(['backbone'], function(Backbone) {
             password: null
         },
         url: function() {
-            return 'http://localhost:8080/account/create';
+            return config.localhost + '/account/create';
         }
     });
 
