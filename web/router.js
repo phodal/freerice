@@ -10,8 +10,9 @@ define([
     'js/lib/User.js',
     'js/UserProfileView.js',
     'js/lib/UserSession.js',
-    'js/lib/Logout.js'
-],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession, Logout){
+    'js/lib/Logout.js',
+    'js/AdminView'
+],function($, _, Backbone, HomeView, LoginView, CreateAccountView, User, UserProfileView, UserSession, Logout, AdminView){
     var AppRouter = Backbone.Router.extend({
         index: function(){
             var homeView = new HomeView();
@@ -34,6 +35,8 @@ define([
             if(UserSession.authenticated() !== true ){
                 this.navigate('account/login', true);
             }
+            var adminView = new AdminView();
+            adminView.render();
         },
         userProfile: function(){
             if (UserSession.authenticated() === true) {

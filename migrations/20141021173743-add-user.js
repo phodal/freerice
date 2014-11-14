@@ -7,6 +7,7 @@ exports.up = function(db, callback) {
         name: type.STRING,
         password: type.STRING,
         email: type.STRING,
+        role: type.STRING,
         enabled: type.BOOLEAN
     }, callback);
 };
