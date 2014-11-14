@@ -1,3 +1,3 @@
 define({
-    localhost: "http://localhost:8080"
+    localhost: "http://0.0.0.0:8080"
 });

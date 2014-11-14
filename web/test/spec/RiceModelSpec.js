@@ -10,7 +10,7 @@ define([
 		this.rices = new Rices();
 		this.server.respondWith(
 			"GET",
-			"http://localhost:8080/all/rice",
+			"http://0.0.0.0:8080/all/rice",
 			[
 				200,
 				{"Content-Type": "application/json"},
@@ -31,7 +31,7 @@ define([
 			expect(this.server.requests[0].method)
 				.toEqual("GET");
 			expect(this.server.requests[0].url)
-				.toEqual("http://localhost:8080/all/rice");
+				.toEqual("http://0.0.0.0:8080/all/rice");
 		});
 
 		it("should get data from the url", function() {

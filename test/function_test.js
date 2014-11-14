@@ -1,8 +1,9 @@
 var Browser = require('zombie');
 var _       = require('underscore');
+var website = "http://0.0.0.0:8080/";
 
 describe("Login/Logout Function Test", function() {
-    var browser = new Browser({ site: "http://0.0.0.0:8080/" });
+    var browser = new Browser({ site: website });
 
     it("should load the home page", function(done) {
         browser.visit('/', function (error) {
@@ -15,7 +16,7 @@ describe("Login/Logout Function Test", function() {
     it('should be on login page', function(done) {
         browser.visit('#account/login')
             .then(function() {
-                assert.equal(browser.location.href, 'http://0.0.0.0:8080/#account/login', 'It is not the Login page');
+                assert.equal(browser.location.href, website + '#account/login', 'It is not the Login page');
                 assert.ok(browser.success, 'It did not load successfully.');
             })
             .then(done, done);
@@ -27,7 +28,7 @@ describe("Login/Logout Function Test", function() {
                 browser.fill('input[name=username]', 'admin');
                 browser.fill('input[name=password]', 'admin');
                 browser.pressButton("Sign in", function() {
-                    if(browser.location.href === 'http://0.0.0.0:8080/#userProfile'){
+                    if(browser.location.href === website + '#userProfile'){
                         done();
                     }
                 });
@@ -37,7 +38,7 @@ describe("Login/Logout Function Test", function() {
     it('should redirect to homepage after logout', function(done) {
         browser.visit('#account/logout')
             .then(function() {
-                if(browser.location.href === 'http://0.0.0.0:8080/#'){
+                if(browser.location.href === website + '#'){
                     done();
                 }
             });
@@ -45,7 +46,7 @@ describe("Login/Logout Function Test", function() {
 });
 
 describe("create Account Function Test", function () {
-    var browser = new Browser({ site: "http://0.0.0.0:8080/" });
+    var browser = new Browser({ site: website });
     var randomNumber = _.random(1, 1000);
     var userName = 'user' + randomNumber;
 
@@ -56,7 +57,7 @@ describe("create Account Function Test", function () {
                 browser.fill('input[name=password]', userName);
                 browser.fill('input[name=email]', userName + "@gmail.com");
                 browser.pressButton("Sign in", function() {
-                    if(browser.location.href === 'http://0.0.0.0:8080/#account/login'){
+                    if(browser.location.href === website + '#account/login'){
                         done();
                     }
                 });
@@ -69,7 +70,7 @@ describe("create Account Function Test", function () {
                 browser.fill('input[name=username]', userName);
                 browser.fill('input[name=password]', userName);
                 browser.pressButton("Sign in", function() {
-                    if(browser.location.href === 'http://0.0.0.0:8080/#userProfile'){
+                    if(browser.location.href === website + '#userProfile'){
                         done();
                     }
                 });
