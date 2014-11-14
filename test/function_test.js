@@ -1,6 +1,7 @@
 var Browser = require('zombie');
+var _       = require('underscore');
 
-describe("Function Test", function() {
+describe("Login/Logout Function Test", function() {
     var browser = new Browser({ site: "http://0.0.0.0:8080/" });
 
     it("should load the home page", function(done) {
@@ -36,7 +37,6 @@ describe("Function Test", function() {
     it('should redirect to homepage after logout', function(done) {
         browser.visit('#account/logout')
             .then(function() {
-                console.log(browser.location.href);
                 if(browser.location.href === 'http://0.0.0.0:8080/#'){
                     done();
                 }
@@ -44,3 +44,35 @@ describe("Function Test", function() {
     });
 });
 
+describe("create Account Function Test", function () {
+    var browser = new Browser({ site: "http://0.0.0.0:8080/" });
+    var randomNumber = _.random(1, 1000);
+    var userName = 'user' + randomNumber;
+
+    it("should redirect to login in page after create account", function () {
+        browser.visit('#account/create')
+            .then(function() {
+                browser.fill('input[name=name]', userName);
+                browser.fill('input[name=password]', userName);
+                browser.fill('input[name=email]', userName + "@gmail.com");
+                browser.pressButton("Sign in", function() {
+                    if(browser.location.href === 'http://0.0.0.0:8080/#account/login'){
+                        done();
+                    }
+                });
+            });
+    });
+
+    it("should login with created user", function () {
+        browser.visit('#account/login')
+            .then(function() {
+                browser.fill('input[name=username]', userName);
+                browser.fill('input[name=password]', userName);
+                browser.pressButton("Sign in", function() {
+                    if(browser.location.href === 'http://0.0.0.0:8080/#userProfile'){
+                        done();
+                    }
+                });
+            });
+    });
+});
