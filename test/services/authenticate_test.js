@@ -6,7 +6,7 @@ var client = restify.createJsonClient({
     version: '*'
 });
 
-describe('User Login Test', function() {
+describe('Authenticate Test', function() {
     it('should return login success', function(done) {
         client.post('/login/user', { name: 'admin', password: "admin" }, function(err, req, res, data) {
             if (err) {

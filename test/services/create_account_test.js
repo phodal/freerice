@@ -13,7 +13,7 @@ var client2 = restify.createJsonClient({
     version: '*'
 });
 
-describe('Create User Test', function() {
+describe('Create Account Test', function() {
     it('should return create success', function (done) {
         var randomNumber = _.random(0, 100);
         client2.post('/account/create', {
@@ -45,7 +45,7 @@ describe('Create User Test', function() {
     });
 });
 
-describe('Visit User Test', function() {
+describe('Visit Account Test', function() {
     it('should return 404 when visit the /account/create', function (done) {
         request('http://127.0.0.1:8080/account/create', function (error, response, body) {
             if (response.statusCode === 404) {
@@ -63,7 +63,7 @@ describe('Visit User Test', function() {
     });
 });
 
-describe('Create User Test', function() {
+describe('Create Account Test', function() {
     it('should return Name must be supplied when name repeat', function(done) {
         request.post({url:'http://127.0.0.1:8080/account/create',
                 form: { name: "admin", password: "user", email: "newuser@phodal.com" }},

@@ -1,7 +1,7 @@
 var http           = require('http');
 var bl             = require('bl');
 
-describe('Get Data Test', function () {
+describe('RESTful GET Test', function () {
     before(function() {
 
     });

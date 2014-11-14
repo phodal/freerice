@@ -53,7 +53,7 @@
     "start": "node server/app.js",
     "initdb": "rm dev.db;./node_modules/.bin/db-migrate up",
     "install": "bower install",
-    "test": "grunt jasmine;rm dev.db;./node_modules/.bin/db-migrate up;istanbul cover node_modules/mocha/bin/_mocha -- -R spec;",
+    "test": "grunt jasmine;rm dev.db;./node_modules/.bin/db-migrate up;istanbul cover node_modules/mocha/bin/_mocha -- -R spec 'test/**/*_test.js';",
     "jslint": "jslint --edition=latest 'server/*.js' 'server/mapper/*.js' 'server/service/*.js' web/js/**/*.js web/js/*.js web/*.js",
     "sendCoverage": "CODECLIMATE_REPO_TOKEN=62ad5b3cbab8aee9e9c32763f7097a0eb673cd2705442d4049b5c9464bb09850 codeclimate < coverage/lcov.info"
   }
