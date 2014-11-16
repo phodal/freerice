@@ -15,7 +15,6 @@ define([
         },
         render: function(){
             this.$el.find("#content").remove();
-            console.log("Admin View");
             this.$el.html(Mustache.to_html(manageRiceTemplate, {data:"data"}));
         }
     });

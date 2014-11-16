@@ -29,7 +29,7 @@ define([
                 }
             },
             error: function(model, response) {
-                callback();
+                callback(model, response);
             }
         });
     };

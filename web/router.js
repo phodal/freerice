@@ -53,8 +53,8 @@ define([
                     [ ":account/create", "createAccount" ],
                     [ ":account/login", "login" ],
                     [ ":account/logout", "logout" ],
-                    [ ":admin", "admin" ],
-                    [ ":userProfile", "userProfile"]
+                    [ ":userProfile", "userProfile"],
+                    [ ":admin", "admin" ]
                 ];
 
             _.each(routes, function(route) {
