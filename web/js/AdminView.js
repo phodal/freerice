@@ -3,9 +3,10 @@ define([
     'backbone',
     'underscore',
     'mustache',
-    'text!/templates/manageRice.html',
-    'js/lib/Rice'
-],function($, Backbone, _, Mustache, manageRiceTemplate, Rice){
+    'text!/templates/managePage.html',
+    'js/lib/Rice',
+    'js/Model/RiceModel'
+],function($, Backbone, _, Mustache, manageTemplate, Rice, RiceModel){
     'use strict';
     var rice = new Rice();
 
@@ -13,7 +14,13 @@ define([
         el: $("#content"),
 
         initialize: function(){
-
+            var that = this;
+            this.collection = new RiceModel();
+            this.collection.fetch({
+                success: function(){
+                    that.render();
+                }
+            });
         },
         events: {
             "click #createRice": "create_rice"
@@ -28,11 +35,17 @@ define([
                 description: $('input[name="description"]').val()
             };
             rice.create(riceInfo);
-            window.app.navigate('/', true);
+            window.app.navigate('admin', true);
         },
         render: function(){
             this.$el.find("#content").remove();
-            this.$el.html(Mustache.to_html(manageRiceTemplate, {data:"data"}));
+            var result = [];
+            _.each(this.collection.models, function(model){
+                if(model.attributes.quantity !== 0 ){
+                    result.push(model.attributes);
+                }
+            });
+            this.$el.html(Mustache.to_html(manageTemplate, result));
         }
     });
 

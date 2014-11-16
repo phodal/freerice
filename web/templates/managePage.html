@@ -34,3 +34,27 @@
 
     </form>
 </div>
+
+<table class="pure-table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+
+    {{#.}}
+    <tbody>
+    <tr>
+        <td>{{name}}</td>
+        <td>{{price}}</td>
+        <td>{{description}}</td>
+        <td>{{type}}</td>
+        <td>{{quantity}}</td>
+    </tr>
+    </tbody>
+    {{/.}}
+</table>
