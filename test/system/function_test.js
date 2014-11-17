@@ -37,7 +37,7 @@ describe("Function Test", function () {
         });
 
         it('should redirect to homepage after logout', function(done) {
-            browser.visit('#account/logout')
+            browser.visit('#/account/logout')
                 .then(function() {
                     if(browser.location.href === website + '#'){
                         done();

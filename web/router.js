@@ -33,7 +33,7 @@ define([
         },
         admin: function(){
             if(UserSession.authenticated() !== true ){
-                this.navigate('/account/login', true);
+                this.navigate('login', true);
             }
             var adminView = new AdminView();
             adminView.render();
@@ -43,18 +43,19 @@ define([
                 var userProfileView = new UserProfileView();
                 userProfileView.render();
             } else {
-                this.navigate('/account/login', true);
+                this.navigate('account/login', true);
+                Backbone.history.loadUrl();
             }
         },
         initialize: function() {
             var router = this,
                 routes = [
                     [ /^.*$/, "index" ],
-                    [ ":account/create", "createAccount" ],
-                    [ ":account/login", "login" ],
-                    [ ":account/logout", "logout" ],
-                    [ ":userProfile", "userProfile"],
-                    [ ":admin", "admin" ]
+                    [ "account/create", "createAccount" ],
+                    [ "account/login", "login" ],
+                    [ "account/logout", "logout" ],
+                    [ "userProfile", "userProfile" ],
+                    [ "admin", "admin" ]
                 ];
 
             _.each(routes, function(route) {
