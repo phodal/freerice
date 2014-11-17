@@ -33,7 +33,7 @@ define([
         },
         admin: function(){
             if(UserSession.authenticated() !== true ){
-                this.navigate('account/login', true);
+                this.navigate('/account/login', true);
             }
             var adminView = new AdminView();
             adminView.render();
@@ -43,7 +43,7 @@ define([
                 var userProfileView = new UserProfileView();
                 userProfileView.render();
             } else {
-                this.navigate('account/login', true);
+                this.navigate('/account/login', true);
             }
         },
         initialize: function() {

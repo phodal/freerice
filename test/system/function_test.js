@@ -15,16 +15,16 @@ describe("Function Test", function () {
         });
 
         it('should be on login page', function(done) {
-            browser.visit('#account/login')
+            browser.visit('#/account/login')
                 .then(function() {
-                    assert.equal(browser.location.href, website + '#account/login', 'It is not the Login page');
+                    assert.equal(browser.location.href, website + '#/account/login', 'It is not the Login page');
                     assert.ok(browser.success, 'It did not load successfully.');
                 })
                 .then(done, done);
         });
 
         it('should redirect to user profile after login', function(done) {
-            browser.visit('#account/login')
+            browser.visit('#/account/login')
                 .then(function() {
                     browser.fill('input[name=username]', 'admin');
                     browser.fill('input[name=password]', 'admin');
@@ -57,7 +57,7 @@ describe("Function Test", function () {
                     browser.fill('input[name=password]', userName);
                     browser.fill('input[name=email]', userName + "@gmail.com");
                     browser.pressButton("Sign in", function() {
-                        if(browser.location.href === website + '#account/login'){
+                        if(browser.location.href === website + '#/account/login'){
                             done();
                         }
                     });
@@ -65,7 +65,7 @@ describe("Function Test", function () {
         });
 
         it("should login with created user", function () {
-            browser.visit('#account/login')
+            browser.visit('#/account/login')
                 .then(function() {
                     browser.fill('input[name=username]', userName);
                     browser.fill('input[name=password]', userName);
