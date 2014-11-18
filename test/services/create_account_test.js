@@ -1,4 +1,3 @@
-var http           = require('http');
 var restify        = require('restify');
 var request        = require('request');
 var _              = require('underscore');
