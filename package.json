@@ -1,6 +1,6 @@
 {
   "name": "freerice",
-  "version": "0.1.5",
+  "version": "0.1.4",
   "description": "MoQi Mobile CMS.",
   "repository": {
     "type": "git",
@@ -25,9 +25,6 @@
       "url": "https://www.phodal.com/"
     }
   ],
-  "bin": {
-    "moqi": "moqi"
-  },
   "license": "MIT",
   "devDependencies": {
     "bl": "~0.9.0",
