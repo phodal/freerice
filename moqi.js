@@ -5,12 +5,8 @@ var program = require('commander')
 
 program
     .version(version)
-    .option('-c, --create', 'Create Freerice project', 'boolean', false)
-    .usage('[command] [options] path');
-
-program.parse(process.argv);
-
-if (!program.args[0]) {
-    program.outputHelp();
-    process.exit(-1)
-}
+    .option('-o, --observe', 'Observe the given resource', 'boolean', false)
+    .option('-n, --no-new-line', 'No new line at the end of the stream', 'boolean', true)
+    .option('-p, --payload <payload>', 'The payload for POST and PUT requests')
+    .option('-q, --quiet', 'Do not print status codes of received packets', 'boolean', false)
+    .usage('[command] [options] url');
