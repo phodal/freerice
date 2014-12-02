@@ -1,7 +1,7 @@
 [![Build Status](https://api.travis-ci.org/phodal/freerice.png)](https://travis-ci.org/phodal/freerice)
 [![Code Climate](https://codeclimate.com/github/phodal/freerice/badges/gpa.svg)](https://codeclimate.com/github/phodal/freerice)
 [![Test Coverage](https://codeclimate.com/github/phodal/freerice/badges/coverage.svg)](https://codeclimate.com/github/phodal/freerice)
-[![Dependencies](https://david-dm.org/phodal/iot-coap.svg?style=flat)](https://david-dm.org/phodal/iot-coap.svg?style=flat0)
+[![Dependencies](https://david-dm.org/phodal/freerice.svg?style=flat)](https://david-dm.org/phodal/freerice.svg?style=flat0)
 
 #Moqi Mobiel CMS (Version: freerice)
 
