@@ -1,6 +1,6 @@
 {
   "name": "freerice",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "MoQi Mobile CMS.",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   "author": [
     {
       "name": "Fengda HUANG",
-      "url": "https://www.phodal.com/"
+      "url": "http://www.phodal.com/"
     }
   ],
   "license": "MIT",
